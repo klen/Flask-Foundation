@@ -2,10 +2,11 @@
 # coding: utf-8
 
 from flaskext.script import Manager, prompt_bool
-from src import create_debug_app
+from src import create_app
+from src.settings import Develop
 
 
-app = create_debug_app()
+app = create_app(Develop)
 manager = Manager(app)
 
 
@@ -26,6 +27,7 @@ def dropall():
 
 @manager.shell
 def make_shell_context():
+    " Update shell. "
     from src import db
     return dict(app=app, db=db)
 
