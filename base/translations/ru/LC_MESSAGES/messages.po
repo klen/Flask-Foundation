@@ -1,0 +1,91 @@
+# Russian translations for Flask-base.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the Flask-base project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Flask-base VERSION\n"
+"Report-Msgid-Bugs-To: horneds@gmail.com\n"
+"POT-Creation-Date: 2012-07-05 01:02+0400\n"
+"PO-Revision-Date: 2012-07-05 00:21+0400\n"
+"Last-Translator: Kirill Klenov <horneds@gmail.com>\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: src/templates/404.html:4
+msgid "Page not found."
+msgstr "Страница не найдена."
+
+#: src/templates/500.html:4
+msgid "The server encountered an unexpected error."
+msgstr "На сервере произошла непредвиденная ошибка."
+
+#: src/templates/500.html:5
+msgid "Please try again later."
+msgstr "Пожалуйста, перезагрузите страницу."
+
+#: src/templates/blocks/nav.html:28
+msgid "Admin"
+msgstr "Администрирование сайта"
+
+#: src/templates/blocks/nav.html:30
+msgid "Profile"
+msgstr "Профиль"
+
+#: src/templates/blocks/nav.html:31
+msgid "Logout"
+msgstr "Выйти"
+
+#: src/templates/blocks/nav.html:35 src/users/templates/users/login.html:8
+#: src/users/templates/users/register.html:12
+msgid "Login"
+msgstr "Войти"
+
+#: src/users/forms.py:6 src/users/forms.py:12
+msgid "Email address"
+msgstr "Электронная почта"
+
+#: src/users/forms.py:7 src/users/forms.py:13
+msgid "Password"
+msgstr "Пароль"
+
+#: src/users/forms.py:11
+msgid "NickName"
+msgstr "Логин"
+
+#: src/users/forms.py:14
+msgid "Repeat Password"
+msgstr "Повторите пароль"
+
+#: src/users/forms.py:16
+msgid "Passwords must match"
+msgstr "Пароли должны совпадать"
+
+#: src/users/views.py:30
+#, python-format
+msgid "Welcome %(user)s"
+msgstr "Добро пожаловать %(user)s"
+
+#: src/users/views.py:32
+msgid "Wrong email or password"
+msgstr "Неправильный адрес почты или пароль"
+
+#: src/users/views.py:60
+msgid "Thanks for registering"
+msgstr "Спасибо за регистрацию"
+
+#: src/users/templates/users/login.html:10
+#: src/users/templates/users/register.html:10
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: src/users/templates/users/profile.html:4
+msgid "Welcome"
+msgstr "Добро пожаловать"
+
