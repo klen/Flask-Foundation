@@ -36,10 +36,10 @@ clean:
 	find $(CURDIR) -name "*.orig" -delete
 
 .PHONY: babel
-babel: src/translations/
+babel: $(BABELDIR)/ru
 	$(PYBABEL) extract -F $(BABELDIR)/babel.ini -k _gettext -k _ngettext -k lazy_gettext -o $(BABELDIR)/babel.pot --project Flask-base $(CURDIR)
 	$(PYBABEL) update -i $(BABELDIR)/babel.pot -d $(BABELDIR)
 	$(PYBABEL) compile -d $(BABELDIR)
 
-src/translations/:
+$(BABELDIR)/ru:
 	$(PYBABEL) init -i $(BABELDIR)/babel.pot -d $(BABELDIR) -l ru
