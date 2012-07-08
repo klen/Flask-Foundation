@@ -23,6 +23,13 @@ def dropall():
         db.drop_all()
 
 
+@manager.command
+def fixture():
+    with open('fixture.sql') as f:
+        db.session.execute(f.read())
+        db.session.commit()
+
+
 @manager.shell
 def make_shell_context():
     " Update shell. "

@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flask-base VERSION\n"
-"Report-Msgid-Bugs-To: horneds@gmail.com\n"
-"POT-Creation-Date: 2012-07-05 01:02+0400\n"
-"PO-Revision-Date: 2012-07-05 00:21+0400\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-07-06 18:58+0400\n"
+"PO-Revision-Date: 2012-07-05 15:17+0400\n"
 "Last-Translator: Kirill Klenov <horneds@gmail.com>\n"
 "Language-Team: ru <LL@li.org>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
@@ -18,74 +18,629 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: src/templates/404.html:4
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:327
+msgid "usage: "
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:829
+msgid ".__call__() not defined"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1113
+#, python-format
+msgid "unknown parser %r (choices: %s)"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1149
+#, python-format
+msgid "argument \"-\" with mode %r"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1350
+#, python-format
+msgid "cannot merge actions - two groups are named %r"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1388
+msgid "'required' is an invalid argument for positionals"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1408
+#, python-format
+msgid "invalid option string %r: must start with a character %r"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1429
+#, python-format
+msgid "dest= is required for options like %r"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1446
+#, python-format
+msgid "invalid conflict_resolution value: %r"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1464
+#, python-format
+msgid "conflicting option string(s): %s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1527
+msgid "mutually exclusive arguments must be optional"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1597
+msgid "positional arguments"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1598
+msgid "optional arguments"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1611
+msgid "show this help message and exit"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1616
+msgid "show program's version number and exit"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1648
+msgid "cannot have multiple subparser arguments"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1700
+#, python-format
+msgid "unrecognized arguments: %s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1793
+#, python-format
+msgid "not allowed with argument %s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1839
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1853
+#, python-format
+msgid "ignored explicit argument %r"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1943
+msgid "too few arguments"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1950
+#, python-format
+msgid "argument %s is required"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1964
+#, python-format
+msgid "one of the arguments %s is required"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2010
+msgid "expected one argument"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2011
+msgid "expected at most one argument"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2012
+msgid "expected at least one argument"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2014
+#, python-format
+msgid "expected %s argument(s)"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2071
+#, python-format
+msgid "ambiguous option: %s could match %s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2133
+#, python-format
+msgid "unexpected option string: %s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2234
+#, python-format
+msgid "%r is not callable"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2250
+#, python-format
+msgid "invalid %s value: %r"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2260
+#, python-format
+msgid "invalid choice: %r (choose from %s)"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2353
+#, python-format
+msgid "%s: error: %s\n"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/base.py:216
+msgid "Home"
+msgstr "Домой"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/form.py:81
+msgid "Invalid time format"
+msgstr "Неправильный формат времени"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:32
+msgid "Invalid directory name"
+msgstr "Неправильное имя директории"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:40
+msgid "File to upload"
+msgstr "Загрузить файл"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:49
+msgid "File required."
+msgstr "Необходим файл"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:54
+msgid "Invalid file type."
+msgstr "Неправильный тип файла"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:335
+msgid "File uploading is disabled."
+msgstr "Загрузка файлов отключена"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:344
+#, python-format
+msgid "File \"%(name)s\" already exists."
+msgstr "Файл \"%(name)s\" существует."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:351
+#, python-format
+msgid "Failed to save file: %(error)s"
+msgstr "Ошибка сохранения файла: %(error)s"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:370
+msgid "Directory creation is disabled."
+msgstr "Создание директорий запрещено."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:380
+#, python-format
+msgid "Failed to create directory: %(error)s"
+msgstr "Ошибка создания директории: %(error)s"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:402
+msgid "Deletion is disabled."
+msgstr "Удаление невозможно."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:407
+msgid "Directory deletion is disabled."
+msgstr "Удаление директории невозможно."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:412
+#, python-format
+msgid "Directory \"%s\" was successfully deleted."
+msgstr "Директория \"%s\" удалена."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:414
+#, python-format
+msgid "Failed to delete directory: %(error)s"
+msgstr "Ошибка удаления директории: %(error)s"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:418
+#, python-format
+msgid "File \"%(name)s\" was successfully deleted."
+msgstr "Файл \"%(name)s\" удален."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:420
+#, python-format
+msgid "Failed to delete file: %(name)s"
+msgstr "Ошибка удаления файла: %(name)s"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:439
+msgid "Renaming is disabled."
+msgstr "Переименование запрещено."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:443
+msgid "Path does not exist."
+msgstr "Путь не существует."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:454
+#, python-format
+msgid "Successfully renamed \"%(src)s\" to \"%(dst)s\""
+msgstr "\"%(src)s\" переименовано в \"%(dst)s\""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:457
+#, python-format
+msgid "Failed to rename: %(error)s"
+msgstr "Ошибка переименования: %(error)s"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:35
+msgid "equals"
+msgstr "равны"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:43
+msgid "not equal"
+msgstr "не равны"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:52
+msgid "contains"
+msgstr "содержат"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:61
+msgid "not contains"
+msgstr "не содержат"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:69
+msgid "greater than"
+msgstr "более чем"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:77
+msgid "smaller than"
+msgstr "менее чем"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/form.py:37
+msgid "Already exists."
+msgstr "Уже существует."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/view.py:518
+#, python-format
+msgid "Failed to create model. %(error)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/view.py:533
+#, python-format
+msgid "Failed to update model. %(error)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/view.py:548
+#, python-format
+msgid "Failed to delete model. %(error)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/model/base.py:735
+msgid "Model was successfully created."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/model/filters.py:82
+msgid "Yes"
+msgstr "Да"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/model/filters.py:83
+msgid "No"
+msgstr "Нет"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/lib.html:105
+msgid "Submit"
+msgstr "Подтвердить"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/lib.html:110
+msgid "Cancel"
+msgstr "Отменить"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/list.html:7
+msgid "Root"
+msgstr "Корень"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/list.html:42
+#, python-format
+msgid "Are you sure you want to delete \\'%(name)s\\' recursively?"
+msgstr "Вы действительно хотите удалить \\'%(name)s\\' рекурсивно?"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/list.html:50
+#, python-format
+msgid "Are you sure you want to delete \\'%(name)s\\'?"
+msgstr "Вы действительно хотите удалить \\'%(name)s\\'?"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/list.html:75
+msgid "Upload File"
+msgstr "Загрузить файл"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/list.html:78
+msgid "Create Directory"
+msgstr "Создать директорию"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/rename.html:5
+#, python-format
+msgid "Please provide new name for %(name)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/create.html:11
+msgid "Save and Add"
+msgstr "Сохранить и добавить"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/create.html:16
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:12
+msgid "List"
+msgstr "Список"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/create.html:19
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:16
+msgid "Create"
+msgstr "Создать"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:23
+msgid "Add Filter"
+msgstr "Добавить Фильтер"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:44
+msgid "Search"
+msgstr "Поиск"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:57
+msgid "Apply"
+msgstr "Применить"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:59
+msgid "Reset Filters"
+msgstr "Сбросить фильтры"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:67
+msgid "Remove Filter"
+msgstr "Удалить фильтер"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:128
+msgid "You sure you want to delete this item?"
+msgstr "Подтвердите удаление."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/validators.py:34
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:174
+msgid "This field is required."
+msgstr "Обязательное поле."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:68
+msgid "Get a visual challenge"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:69
+msgid "Get an audio challenge"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:70
+msgid "Get a new challenge"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:71
+msgid "Type the two words:"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:72
+msgid "Type what you hear:"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:73
+msgid "Help"
+msgstr "Помощь"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:74
+msgid "Play sound again"
+msgstr "Проиграть снова"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:75
+msgid "Download sound as MP3"
+msgstr "Загрузить звук как MP3"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:76
+msgid "Incorrect. Try again."
+msgstr "Неправильно, попробуйте еще раз."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:51
+#, python-format
+msgid "Invalid field name '%s'."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:58
+#, python-format
+msgid "Field must be equal to %(other_name)s."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:90
+#, python-format
+msgid "Field must be at least %(min)d character long."
+msgid_plural "Field must be at least %(min)d characters long."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:93
+#, python-format
+msgid "Field cannot be longer than %(max)d character."
+msgid_plural "Field cannot be longer than %(max)d characters."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:96
+#, python-format
+msgid "Field must be between %(min)d and %(max)d characters long."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:131
+#, python-format
+msgid "Number must be greater than %(min)s."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:133
+#, python-format
+msgid "Number must be less than %(max)s."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:135
+#, python-format
+msgid "Number must be between %(min)s and %(max)s."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:202
+msgid "Invalid input."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:221
+msgid "Invalid email address."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:238
+msgid "Invalid IP address."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:256
+msgid "Invalid Mac address."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:281
+msgid "Invalid URL."
+msgstr "Неправильный URL."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:299
+msgid "Invalid UUID."
+msgstr "Неправильный UUID."
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:326
+#, python-format
+msgid "Invalid value, must be one of: %(values)s."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:353
+#, python-format
+msgid "Invalid value, can't be any of: %(values)s."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:87
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/django/fields.py:86
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:122
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:172
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:177
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:416
+msgid "Not a valid choice"
+msgstr "Неправильный выбор"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:106
+msgid "Not a valid list"
+msgstr "Неправильный список"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:45
+msgid "Invalid CSRF Token"
+msgstr "Неправильный CSRF токен"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:56
+msgid "CSRF token missing"
+msgstr "Не указан CSRF токен"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:64
+msgid "CSRF failed"
+msgstr "Ошибка CSRF"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:69
+msgid "CSRF token expired"
+msgstr "CSRF токен просрочен"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:48
+msgid "Please input a date/time value"
+msgstr "Пожалуйста введите значение даты/времени"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:60
+msgid "Invalid date/time input"
+msgstr "Неправильный формат ввода даты/времени"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:409
+msgid "Invalid Choice: could not coerce"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:442
+msgid "Invalid choice(s): one or more data inputs could not be coerced"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:449
+#, python-format
+msgid "'%(value)s' is not a valid choice for this field"
+msgstr "'%(value)s' невозможно для этого поля"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:504
+msgid "Not a valid integer value"
+msgstr "Неправильное целочисленное значение"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:551
+msgid "Not a valid decimal value"
+msgstr "Неправильное значение"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:578
+msgid "Not a valid float value"
+msgstr "Неправильное значение"
+
+#: /home/klen/Projects/flask_template/base/templates/404.html:4
 msgid "Page not found."
 msgstr "Страница не найдена."
 
-#: src/templates/500.html:4
+#: /home/klen/Projects/flask_template/base/templates/500.html:4
 msgid "The server encountered an unexpected error."
 msgstr "На сервере произошла непредвиденная ошибка."
 
-#: src/templates/500.html:5
+#: /home/klen/Projects/flask_template/base/templates/500.html:5
 msgid "Please try again later."
-msgstr "Пожалуйста, перезагрузите страницу."
+msgstr "Пожалуйста повторите запрос позже."
 
-#: src/templates/blocks/nav.html:28
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:28
 msgid "Admin"
-msgstr "Администрирование сайта"
+msgstr "Администрирование"
 
-#: src/templates/blocks/nav.html:30
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:30
 msgid "Profile"
 msgstr "Профиль"
 
-#: src/templates/blocks/nav.html:31
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:31
 msgid "Logout"
 msgstr "Выйти"
 
-#: src/templates/blocks/nav.html:35 src/users/templates/users/login.html:8
-#: src/users/templates/users/register.html:12
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:35
+#: /home/klen/Projects/flask_template/base/users/templates/users/login.html:8
+#: /home/klen/Projects/flask_template/base/users/templates/users/register.html:12
 msgid "Login"
 msgstr "Войти"
 
-#: src/users/forms.py:6 src/users/forms.py:12
+#: /home/klen/Projects/flask_template/base/users/forms.py:6
+#: /home/klen/Projects/flask_template/base/users/forms.py:12
 msgid "Email address"
-msgstr "Электронная почта"
+msgstr "Адрес электронной почты"
 
-#: src/users/forms.py:7 src/users/forms.py:13
+#: /home/klen/Projects/flask_template/base/users/forms.py:7
+#: /home/klen/Projects/flask_template/base/users/forms.py:13
 msgid "Password"
 msgstr "Пароль"
 
-#: src/users/forms.py:11
+#: /home/klen/Projects/flask_template/base/users/forms.py:11
 msgid "NickName"
 msgstr "Логин"
 
-#: src/users/forms.py:14
+#: /home/klen/Projects/flask_template/base/users/forms.py:14
 msgid "Repeat Password"
 msgstr "Повторите пароль"
 
-#: src/users/forms.py:16
+#: /home/klen/Projects/flask_template/base/users/forms.py:16
 msgid "Passwords must match"
 msgstr "Пароли должны совпадать"
 
-#: src/users/views.py:30
+#: /home/klen/Projects/flask_template/base/users/views.py:29
 #, python-format
 msgid "Welcome %(user)s"
 msgstr "Добро пожаловать %(user)s"
 
-#: src/users/views.py:32
+#: /home/klen/Projects/flask_template/base/users/views.py:31
 msgid "Wrong email or password"
 msgstr "Неправильный адрес почты или пароль"
 
-#: src/users/views.py:60
+#: /home/klen/Projects/flask_template/base/users/views.py:59
 msgid "Thanks for registering"
 msgstr "Спасибо за регистрацию"
 
-#: src/users/templates/users/login.html:10
-#: src/users/templates/users/register.html:10
+#: /home/klen/Projects/flask_template/base/users/templates/users/login.html:10
+#: /home/klen/Projects/flask_template/base/users/templates/users/register.html:10
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-#: src/users/templates/users/profile.html:4
+#: /home/klen/Projects/flask_template/base/users/templates/users/profile.html:4
 msgid "Welcome"
 msgstr "Добро пожаловать"
 
