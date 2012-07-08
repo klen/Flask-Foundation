@@ -1,7 +1,6 @@
 from flask.ext.login import UserMixin
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.ext.hybrid import hybrid_property
-from sqlalchemy.orm import relationship
 from werkzeug import check_password_hash, generate_password_hash
 
 from base.admin import admin, AuthModelView
@@ -39,13 +38,11 @@ class User(db.Model, UserMixin, BaseMixin):
     username = db.Column(db.String(50), unique=True)
     email = db.Column(db.String(120), unique=True)
     active = db.Column(db.Boolean, default=True)
-    staff = db.Column(db.Boolean, default=False)
-    admin = db.Column(db.Boolean, default=False)
     _pw_hash = db.Column(db.String(199), nullable=False)
 
     @declared_attr
     def groups(cls):
-        return relationship("Group", secondary=usergroups, backref="users")
+        return db.relationship("Group", secondary=usergroups, backref="users")
 
     @hybrid_property
     def pw_hash(self):
@@ -64,20 +61,6 @@ class User(db.Model, UserMixin, BaseMixin):
 
     def is_active(self):
         return self.active
-
-    @property
-    def memberof(self, prefix="group:"):
-        """Returns a list of groups for which this user is a member,
-        with each group appended by the given prefix.
-        """
-        return ['%s%s' % (prefix or '', g.name) for g in self.groups]
-
-    @property
-    def memberofcount(self):
-        """Returns the number of groups to which this User is a member
-        as an int.
-        """
-        return len(self.groups)
 
     def __unicode__(self):
         return self.username

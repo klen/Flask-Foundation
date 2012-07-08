@@ -26,8 +26,9 @@ def dropall():
 @manager.command
 def fixture():
     with open('fixture.sql') as f:
-        db.session.execute(f.read())
-        db.session.commit()
+        for l in f.readlines():
+            db.session.execute(l)
+            db.session.commit()
 
 
 @manager.shell
