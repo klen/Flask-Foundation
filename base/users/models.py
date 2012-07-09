@@ -8,30 +8,31 @@ from base.app import db
 from base.core import BaseMixin
 
 
-usergroups = db.Table('users_usergroups',
+userroles = db.Table('users_userroles',
     db.Column('user_id', db.Integer, db.ForeignKey('users_user.id')),
-    db.Column('group_id', db.Integer, db.ForeignKey('users_group.id'))
+    db.Column('role_id', db.Integer, db.ForeignKey('users_role.id'))
 )
 
 
-class Group(db.Model, BaseMixin):
+class Role(db.Model, BaseMixin):
+    " User roles. "
 
-    __tablename__ = 'users_group'
+    __tablename__ = 'users_role'
 
     name = db.Column(db.String(19), nullable=False, unique=True)
-    active = db.Column(db.Boolean, default=True)
 
     def __unicode__(self):
         return self.name
 
     def __repr__(self):
-        return '<Group %r>' % (self.name)
+        return '<Role %r>' % (self.name)
 
 # Add view
-admin.add_view(AuthModelView(Group, db.session))
+admin.add_view(AuthModelView(Role, db.session))
 
 
 class User(db.Model, UserMixin, BaseMixin):
+    " Main user model. "
 
     __tablename__ = 'users_user'
 
@@ -42,7 +43,7 @@ class User(db.Model, UserMixin, BaseMixin):
 
     @declared_attr
     def groups(cls):
-        return db.relationship("Group", secondary=usergroups, backref="users")
+        return db.relationship("Role", secondary=userroles, backref="users")
 
     @hybrid_property
     def pw_hash(self):
