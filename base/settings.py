@@ -4,7 +4,7 @@ from os import path as op
 __basedir__ = op.abspath(op.dirname(op.dirname(__file__)))
 
 
-class Core(object):
+class Config(object):
     DEBUG = False
     TESTING = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + op.join(__basedir__, '.db')
@@ -12,7 +12,7 @@ class Core(object):
     CSRF_SESSION_KEY = "somethingimpossibletoguess"
 
 
-class Production(Core):
+class Production(Config):
     ADMINS = frozenset(['youremail@yourdomain.com'])
     SECRET_KEY = 'SecretKeyForSessionSigning'
     DATABASE_CONNECT_OPTIONS = {}

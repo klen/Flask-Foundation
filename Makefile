@@ -3,6 +3,7 @@ PIP=$(ENVBIN)/pip
 PYTHON=$(ENVBIN)/python
 PYBABEL=$(ENVBIN)/pybabel
 BABELDIR=$(CURDIR)/base/translations
+CONFIG=base.settings.Develop
 
 all: .env
 
@@ -13,17 +14,17 @@ all: .env
 
 .PHONY: shell
 shell: .env/ manage.py
-	$(PYTHON) manage.py shell
+	$(PYTHON) manage.py shell -c $(CONFIG)
 
 
 .PHONY: run
 run: .env/ manage.py
-	$(PYTHON) manage.py runserver
+	$(PYTHON) manage.py runserver -c $(CONFIG)
 
 
 .PHONY: db
 db: .env/ manage.py
-	$(PYTHON) manage.py createall
+	$(PYTHON) manage.py createall -c $(CONFIG)
 
 
 .PHONY: test

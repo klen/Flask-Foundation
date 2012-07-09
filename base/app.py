@@ -8,7 +8,7 @@ import settings
 db = SQLAlchemy()
 
 
-def create_app(config=None):
+def create_app(config=None, **skip):
     app = Flask(__name__)
     app.config.from_object(config or settings.Production)
     app.config.from_envvar("APP_SETTINGS", silent=True)
