@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-from flaskext.script import Manager, prompt_bool
+from flask.ext.script import Manager, prompt_bool
 
 from base.app import create_app, db
 from base.settings import Develop

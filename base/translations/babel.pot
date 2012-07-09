@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Flask-base VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2012-07-06 18:58+0400\n"
+"POT-Creation-Date: 2012-07-09 16:01+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,154 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:327
-msgid "usage: "
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:829
-msgid ".__call__() not defined"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1113
-#, python-format
-msgid "unknown parser %r (choices: %s)"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1149
-#, python-format
-msgid "argument \"-\" with mode %r"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1350
-#, python-format
-msgid "cannot merge actions - two groups are named %r"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1388
-msgid "'required' is an invalid argument for positionals"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1408
-#, python-format
-msgid "invalid option string %r: must start with a character %r"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1429
-#, python-format
-msgid "dest= is required for options like %r"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1446
-#, python-format
-msgid "invalid conflict_resolution value: %r"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1464
-#, python-format
-msgid "conflicting option string(s): %s"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1527
-msgid "mutually exclusive arguments must be optional"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1597
-msgid "positional arguments"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1598
-msgid "optional arguments"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1611
-msgid "show this help message and exit"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1616
-msgid "show program's version number and exit"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1648
-msgid "cannot have multiple subparser arguments"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1700
-#, python-format
-msgid "unrecognized arguments: %s"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1793
-#, python-format
-msgid "not allowed with argument %s"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1839
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1853
-#, python-format
-msgid "ignored explicit argument %r"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1943
-msgid "too few arguments"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1950
-#, python-format
-msgid "argument %s is required"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:1964
-#, python-format
-msgid "one of the arguments %s is required"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2010
-msgid "expected one argument"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2011
-msgid "expected at most one argument"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2012
-msgid "expected at least one argument"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2014
-#, python-format
-msgid "expected %s argument(s)"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2071
-#, python-format
-msgid "ambiguous option: %s could match %s"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2133
-#, python-format
-msgid "unexpected option string: %s"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2234
-#, python-format
-msgid "%r is not callable"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2250
-#, python-format
-msgid "invalid %s value: %r"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2260
-#, python-format
-msgid "invalid choice: %r (choose from %s)"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/IPython/external/argparse/_argparse.py:2353
-#, python-format
-msgid "%s: error: %s\n"
-msgstr ""
 
 #: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/base.py:216
 msgid "Home"
@@ -386,187 +238,6 @@ msgstr ""
 msgid "You sure you want to delete this item?"
 msgstr ""
 
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/validators.py:34
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:174
-msgid "This field is required."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:68
-msgid "Get a visual challenge"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:69
-msgid "Get an audio challenge"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:70
-msgid "Get a new challenge"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:71
-msgid "Type the two words:"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:72
-msgid "Type what you hear:"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:73
-msgid "Help"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:74
-msgid "Play sound again"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:75
-msgid "Download sound as MP3"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_wtf/recaptcha/widgets.py:76
-msgid "Incorrect. Try again."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:51
-#, python-format
-msgid "Invalid field name '%s'."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:58
-#, python-format
-msgid "Field must be equal to %(other_name)s."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:90
-#, python-format
-msgid "Field must be at least %(min)d character long."
-msgid_plural "Field must be at least %(min)d characters long."
-msgstr[0] ""
-msgstr[1] ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:93
-#, python-format
-msgid "Field cannot be longer than %(max)d character."
-msgid_plural "Field cannot be longer than %(max)d characters."
-msgstr[0] ""
-msgstr[1] ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:96
-#, python-format
-msgid "Field must be between %(min)d and %(max)d characters long."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:131
-#, python-format
-msgid "Number must be greater than %(min)s."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:133
-#, python-format
-msgid "Number must be less than %(max)s."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:135
-#, python-format
-msgid "Number must be between %(min)s and %(max)s."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:202
-msgid "Invalid input."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:221
-msgid "Invalid email address."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:238
-msgid "Invalid IP address."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:256
-msgid "Invalid Mac address."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:281
-msgid "Invalid URL."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:299
-msgid "Invalid UUID."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:326
-#, python-format
-msgid "Invalid value, must be one of: %(values)s."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/validators.py:353
-#, python-format
-msgid "Invalid value, can't be any of: %(values)s."
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:87
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/django/fields.py:86
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:122
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:172
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:177
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:416
-msgid "Not a valid choice"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:106
-msgid "Not a valid list"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:45
-msgid "Invalid CSRF Token"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:56
-msgid "CSRF token missing"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:64
-msgid "CSRF failed"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:69
-msgid "CSRF token expired"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:48
-msgid "Please input a date/time value"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:60
-msgid "Invalid date/time input"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:409
-msgid "Invalid Choice: could not coerce"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:442
-msgid "Invalid choice(s): one or more data inputs could not be coerced"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:449
-#, python-format
-msgid "'%(value)s' is not a valid choice for this field"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:504
-msgid "Not a valid integer value"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:551
-msgid "Not a valid decimal value"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/wtforms/fields/core.py:578
-msgid "Not a valid float value"
-msgstr ""
-
 #: /home/klen/Projects/flask_template/base/templates/404.html:4
 msgid "Page not found."
 msgstr ""
@@ -579,44 +250,70 @@ msgstr ""
 msgid "Please try again later."
 msgstr ""
 
-#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:28
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:29
 msgid "Admin"
 msgstr ""
 
-#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:30
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:31
 msgid "Profile"
 msgstr ""
 
-#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:31
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:32
 msgid "Logout"
 msgstr ""
 
-#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:35
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:37
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:46
+#: /home/klen/Projects/flask_template/base/users/forms.py:27
 #: /home/klen/Projects/flask_template/base/users/templates/users/login.html:8
 #: /home/klen/Projects/flask_template/base/users/templates/users/register.html:12
 msgid "Login"
 msgstr ""
 
-#: /home/klen/Projects/flask_template/base/users/forms.py:6
-#: /home/klen/Projects/flask_template/base/users/forms.py:12
+#: /home/klen/Projects/flask_template/base/users/forms.py:7
 msgid "Email address"
 msgstr ""
 
-#: /home/klen/Projects/flask_template/base/users/forms.py:7
+#: /home/klen/Projects/flask_template/base/users/forms.py:8
+msgid "Email not provided"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:9
+msgid "Invalid email address"
+msgstr ""
+
 #: /home/klen/Projects/flask_template/base/users/forms.py:13
 msgid "Password"
 msgstr ""
 
-#: /home/klen/Projects/flask_template/base/users/forms.py:11
-msgid "NickName"
-msgstr ""
-
 #: /home/klen/Projects/flask_template/base/users/forms.py:14
-msgid "Repeat Password"
+msgid "Password not provided"
 msgstr ""
 
-#: /home/klen/Projects/flask_template/base/users/forms.py:16
-msgid "Passwords must match"
+#: /home/klen/Projects/flask_template/base/users/forms.py:18
+msgid "Retype Password"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:19
+msgid "Passwords do not match"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:25
+msgid "Remember Me"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:39
+msgid "Recover Password"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:50
+#: /home/klen/Projects/flask_template/base/users/templates/users/login.html:10
+#: /home/klen/Projects/flask_template/base/users/templates/users/register.html:10
+msgid "Register"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:64
+msgid "Reset Password"
 msgstr ""
 
 #: /home/klen/Projects/flask_template/base/users/views.py:29
@@ -630,11 +327,6 @@ msgstr ""
 
 #: /home/klen/Projects/flask_template/base/users/views.py:59
 msgid "Thanks for registering"
-msgstr ""
-
-#: /home/klen/Projects/flask_template/base/users/templates/users/login.html:10
-#: /home/klen/Projects/flask_template/base/users/templates/users/register.html:10
-msgid "Register"
 msgstr ""
 
 #: /home/klen/Projects/flask_template/base/users/templates/users/profile.html:4

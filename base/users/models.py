@@ -1,4 +1,5 @@
 from flask.ext.login import UserMixin
+from flask.ext.principal import RoleNeed, Permission
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.ext.hybrid import hybrid_property
 from werkzeug import check_password_hash, generate_password_hash
@@ -42,7 +43,7 @@ class User(db.Model, UserMixin, BaseMixin):
     _pw_hash = db.Column(db.String(199), nullable=False)
 
     @declared_attr
-    def groups(cls):
+    def roles(cls):
         return db.relationship("Role", secondary=userroles, backref="users")
 
     @hybrid_property
@@ -56,6 +57,10 @@ class User(db.Model, UserMixin, BaseMixin):
             in the database.
         """
         self._pw_hash = generate_password_hash(raw_password)
+
+    def permission(self, role):
+        perm = Permission(RoleNeed(role))
+        return perm.can()
 
     def check_password(self, password):
         return check_password_hash(self.pw_hash, password)

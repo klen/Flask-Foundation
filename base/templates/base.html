@@ -1,39 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-    <title>{% block title%}Flask template{% endblock %}</title>
-    <link href="/static/bootstrap-2.0.2.min.css" rel="stylesheet" />
-    <link href="/static/bootstrap-responsive-2.0.2.min.css" rel="stylesheet" />
-    <link href="/static/main.css" rel="stylesheet" />
-    {% block style_block %}<!-- page-specific CSS -->{% endblock %}
-    <script src="/static/modernizr.min.js"></script>
-    {% block head_script %}<!-- defer-incapable JS block -->{% endblock %}
-</head>
+{% extends "bootstrap_responsive.html" %}
 
-<body>
-    <div id="header">
-        {% include 'blocks/nav.html' %} {# pull in navbar #}
+{% block body_content %}
+
+    {# Navbar #}
+    {% block navigation %}
+        {% include 'blocks/nav.html' %}
+    {% endblock %}
+
+    {% include "blocks/messages.html" %}
+
+    <div class="container">
+        {% block page_content %}{% endblock %}
     </div>
-    <div class="container" id="maincontent">
-        {% include 'blocks/messages.html' %} {# page-level feedback notices #}
-        <div id="body_content">
-            {% block content %}<!-- main content area -->{% endblock %}
-        </div>
-    </div><!-- /container -->
 
-    <footer>
-        <div id="footer" class="container">
-            {% block footer %}<!-- footer -->{% endblock %}
-        </div><!-- /footer -->
-    </footer>
-    <script src="/static/jquery-1.7.2.min.js"></script>
-    <script src="/static/bootstrap-2.0.3.min.js"></script>
-    <script src="/static/main.js"></script>
-    {% block tail_script %}<!-- defer-capable JS block -->{% endblock %}
+    {% block footer %}
+        <hr>
+        <footer>
+            <p>&copy; Company 2012</p>
+        </footer>
+    {% endblock %}
 
-</body>
-</html>
-
+{% endblock %}

@@ -21,7 +21,7 @@ class UserManager(Blueprint):
             self._login_manager = LoginManager()
             self._login_manager.user_callback = self.user_loader
             self._login_manager.setup_app(app)
-            self._login_manager.login_view = 'users.login'
+            self._login_manager.login_view = 'urls.index'
             self._login_manager.login_message = u'You need to be signed in for this page.'
 
         if not self._principal:
@@ -47,7 +47,7 @@ class UserManager(Blueprint):
         return logout_user()
 
     def login(self, user):
-        identity_changed.send(self.app, identity=Identity(user.username))
+        identity_changed.send(self.app, identity=Identity(user.id))
         return login_user(user)
 
     @staticmethod
@@ -58,7 +58,7 @@ class UserManager(Blueprint):
         if current_user.is_authenticated():
             identity.provides.add(UserNeed(current_user.id))
 
-            # Assuming the User model has a list of groups, update the
+            # Assuming the User model has a list of roles, update the
             # identity with the roles that the user provides
-            for group in current_user.groups:
-                identity.provides.add(RoleNeed(group.name))
+            for role in current_user.roles:
+                identity.provides.add(RoleNeed(role.name))

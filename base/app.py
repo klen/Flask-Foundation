@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.bootstrap import Bootstrap
 
 import settings
 
@@ -24,6 +25,9 @@ def create_app(config=None):
     # Admin
     from admin import admin
     admin.init_app(app)
+
+    # Bootstrap
+    Bootstrap(app)
 
     # Localization
     from flask.ext.babel import Babel

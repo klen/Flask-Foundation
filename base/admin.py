@@ -1,22 +1,21 @@
 from flask.ext.admin import AdminIndexView, Admin
 from flask.ext.admin.contrib.sqlamodel import ModelView
-
-from base.users import permission
+from flask.ext.login import current_user
 
 
 class StaffAdminView(AdminIndexView):
     " Staff admin home page. "
     def is_accessible(self):
-        return permission.staff.can()
+        return current_user.permission('staff')
 
 
 class AuthModelView(ModelView):
     def __init__(self, *args, **kwargs):
-        self.permission = kwargs.pop('permission', None) or permission.admin
+        self.role = kwargs.pop('role', None) or 'admin'
         super(AuthModelView, self).__init__(*args, **kwargs)
 
     def is_accessible(self):
-        return self.permission.can()
+        return current_user.permission(self.role)
 
 
 # Create admin

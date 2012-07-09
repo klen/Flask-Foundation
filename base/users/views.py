@@ -16,9 +16,9 @@ def profile():
     return render_template("users/profile.html")
 
 
-@users.route('/login/', methods=['GET', 'POST'])
+@users.route('/login/', methods=['POST'])
 def login():
-    " Login form. "
+    " View function which handles an authentication request. "
     form = LoginForm(request.form)
     # make sure data are valid, but doesn't validate password is right
     if form.validate_on_submit():
@@ -29,14 +29,15 @@ def login():
             flash(_('Welcome %(user)s', user=user.username))
             return redirect(url_for('users.profile'))
         flash(_('Wrong email or password'), 'error-message')
-    return render_template("users/login.html", form=form)
+    return redirect(request.referrer or url_for(users._login_manager.login_view))
 
 
 @users.route('/logout/', methods=['GET'])
 @users.login_required
 def logout():
+    " View function which handles a logout request. "
     users.logout()
-    return redirect('/')
+    return redirect(request.referrer or url_for(users._login_manager.login_view))
 
 
 @users.route('/register/', methods=['GET', 'POST'])
@@ -49,6 +50,7 @@ def register():
                 username=form.username.data,
                 email=form.email.data,
                 pw_hash=form.password.data)
+
         # Insert the record in our database and commit it
         db.session.add(user)
         db.session.commit()
