@@ -26,6 +26,11 @@ run: .env/ manage.py
 db: .env/ manage.py
 	$(PYTHON) manage.py create_db -c $(CONFIG)
 
+.db: db
+
+.PHONY: migrate
+migrate: .env/ manage.py .db
+	$(PYTHON) manage.py migrate run -c $(CONFIG)
 
 .PHONY: test
 test: .env/ manage.py
