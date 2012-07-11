@@ -1,0 +1,23 @@
+{% extends "bootstrap_responsive.html" %}
+
+{% block body_content %}
+
+    {# Navbar #}
+    {% block navigation %}
+        {% include 'blocks/nav.html' %}
+    {% endblock %}
+
+    {% include "blocks/messages.html" %}
+
+    <div class="container">
+        {% block page_content %}{% endblock %}
+    </div>
+
+    {% block footer %}
+        <hr>
+        <footer>
+            <p>&copy; Company 2012</p>
+        </footer>
+    {% endblock %}
+
+{% endblock %}

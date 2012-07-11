@@ -1,0 +1,335 @@
+# Translations template for Flask-base.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the Flask-base project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flask-base VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-07-09 16:01+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/base.py:216
+msgid "Home"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/form.py:81
+msgid "Invalid time format"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:32
+msgid "Invalid directory name"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:40
+msgid "File to upload"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:49
+msgid "File required."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:54
+msgid "Invalid file type."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:335
+msgid "File uploading is disabled."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:344
+#, python-format
+msgid "File \"%(name)s\" already exists."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:351
+#, python-format
+msgid "Failed to save file: %(error)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:370
+msgid "Directory creation is disabled."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:380
+#, python-format
+msgid "Failed to create directory: %(error)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:402
+msgid "Deletion is disabled."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:407
+msgid "Directory deletion is disabled."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:412
+#, python-format
+msgid "Directory \"%s\" was successfully deleted."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:414
+#, python-format
+msgid "Failed to delete directory: %(error)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:418
+#, python-format
+msgid "File \"%(name)s\" was successfully deleted."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:420
+#, python-format
+msgid "Failed to delete file: %(name)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:439
+msgid "Renaming is disabled."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:443
+msgid "Path does not exist."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:454
+#, python-format
+msgid "Successfully renamed \"%(src)s\" to \"%(dst)s\""
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/fileadmin.py:457
+#, python-format
+msgid "Failed to rename: %(error)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:35
+msgid "equals"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:43
+msgid "not equal"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:52
+msgid "contains"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:61
+msgid "not contains"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:69
+msgid "greater than"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/filters.py:77
+msgid "smaller than"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/form.py:37
+msgid "Already exists."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/view.py:518
+#, python-format
+msgid "Failed to create model. %(error)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/view.py:533
+#, python-format
+msgid "Failed to update model. %(error)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/contrib/sqlamodel/view.py:548
+#, python-format
+msgid "Failed to delete model. %(error)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/model/base.py:735
+msgid "Model was successfully created."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/model/filters.py:82
+msgid "Yes"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/model/filters.py:83
+msgid "No"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/lib.html:105
+msgid "Submit"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/lib.html:110
+msgid "Cancel"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/list.html:7
+msgid "Root"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/list.html:42
+#, python-format
+msgid "Are you sure you want to delete \\'%(name)s\\' recursively?"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/list.html:50
+#, python-format
+msgid "Are you sure you want to delete \\'%(name)s\\'?"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/list.html:75
+msgid "Upload File"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/list.html:78
+msgid "Create Directory"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/file/rename.html:5
+#, python-format
+msgid "Please provide new name for %(name)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/create.html:11
+msgid "Save and Add"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/create.html:16
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:12
+msgid "List"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/create.html:19
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:16
+msgid "Create"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:23
+msgid "Add Filter"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:44
+msgid "Search"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:57
+msgid "Apply"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:59
+msgid "Reset Filters"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:67
+msgid "Remove Filter"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/.env/lib/python2.7/site-packages/flask_admin/templates/admin/model/list.html:128
+msgid "You sure you want to delete this item?"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/templates/404.html:4
+msgid "Page not found."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/templates/500.html:4
+msgid "The server encountered an unexpected error."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/templates/500.html:5
+msgid "Please try again later."
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:29
+msgid "Admin"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:31
+msgid "Profile"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:32
+msgid "Logout"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:37
+#: /home/klen/Projects/flask_template/base/templates/blocks/nav.html:46
+#: /home/klen/Projects/flask_template/base/users/forms.py:27
+#: /home/klen/Projects/flask_template/base/users/templates/users/login.html:8
+#: /home/klen/Projects/flask_template/base/users/templates/users/register.html:12
+msgid "Login"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:7
+msgid "Email address"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:8
+msgid "Email not provided"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:9
+msgid "Invalid email address"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:13
+msgid "Password"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:14
+msgid "Password not provided"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:18
+msgid "Retype Password"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:19
+msgid "Passwords do not match"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:25
+msgid "Remember Me"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:39
+msgid "Recover Password"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:50
+#: /home/klen/Projects/flask_template/base/users/templates/users/login.html:10
+#: /home/klen/Projects/flask_template/base/users/templates/users/register.html:10
+msgid "Register"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/forms.py:64
+msgid "Reset Password"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/views.py:29
+#, python-format
+msgid "Welcome %(user)s"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/views.py:31
+msgid "Wrong email or password"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/views.py:59
+msgid "Thanks for registering"
+msgstr ""
+
+#: /home/klen/Projects/flask_template/base/users/templates/users/profile.html:4
+msgid "Welcome"
+msgstr ""
+

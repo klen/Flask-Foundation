@@ -1,0 +1,10 @@
+Flask==0.9
+Flask-SQLAlchemy==0.16
+Flask-Script==0.3.3
+Flask-Admin==1.0.1
+Flask-Babel==0.8
+Flask-Bootstrap==2.0.4-3
+Flask-Login==0.1.3
+Flask-Principal==0.3
+git+git://github.com/tomasd/flask-evolution.git#egg=Flask-Evolution==0.4
+nose==1.1.2
