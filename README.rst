@@ -4,7 +4,7 @@ Flask Template Project
 Quick start with Flask.
 
 * `Flask-Bootstrap <http://github.com/mbr/flask-bootstrap>`_ (markup);
-* `Flask-SQLAlchemy <http://github.com/mitsuhiko/flask-sqlalchemy>` (ORM);
+* `Flask-SQLAlchemy <http://github.com/mitsuhiko/flask-sqlalchemy>`_ (ORM);
 * `Flask-WTF <http://github.com/rduplain/flask-wtf>`_ (forms);
 * `Flask-Evolution <http://pypi.python.org/pypi/Flask-Evolution/0.5>`_ (migration);
 * `Flask-babel <http://github.com/mitsuhiko/flask-babel>`_ (i18n);
@@ -17,6 +17,7 @@ Quick start with Flask.
 Instalation:
 ------------
 ::
+
     git clone https://github.com/klen/flask-template.git
     cd flask-template
     make migrate
@@ -26,4 +27,5 @@ Usage:
 ------
 
 Run development server: ::
+
     make run
