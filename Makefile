@@ -24,7 +24,7 @@ run: .env/ manage.py
 
 .PHONY: db
 db: .env/ manage.py
-	$(PYTHON) manage.py createall -c $(CONFIG)
+	$(PYTHON) manage.py create_db -c $(CONFIG)
 
 
 .PHONY: test
