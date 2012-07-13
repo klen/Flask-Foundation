@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.bootstrap import Bootstrap
+from flask.ext.cache import Cache
 
 import settings
 
@@ -28,6 +29,9 @@ def create_app(config=None, **skip):
 
     # Bootstrap
     Bootstrap(app)
+
+    # Cache
+    app.cache = Cache(app)
 
     # Localization
     from flask.ext.babel import Babel
