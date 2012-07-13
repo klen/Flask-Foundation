@@ -18,5 +18,12 @@ class AuthModelView(ModelView):
         return current_user.is_authenticated() and current_user.permission(self.role)
 
 
-# Create admin
-admin = Admin(name='Admin', index_view=StaffAdminView())
+class FlaskAdmin(Admin):
+
+    def __init__(self, db=None, **kwargs):
+        self.db = db
+        super(FlaskAdmin, self).__init__(index_view=StaffAdminView(), **kwargs)
+
+    def add_model(self, model, view=None, role='admin', **kwargs):
+        view = view or AuthModelView
+        self.add_view(view(model, self.db.session))
