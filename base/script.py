@@ -5,7 +5,7 @@ class CreateDB(Command):
     " Create DB structure. "
 
     def run(self):
-        from base.app import db
+        from base.ext import db
         db.create_all()
         print "Database created successfuly"
 
@@ -13,7 +13,7 @@ class CreateDB(Command):
 class DropDB(Command):
     " Drops all database tables. "
     def run(self):
-        from base.app import db
+        from base.ext import db
         if prompt_bool("Are you sure? You will lose all your data!"):
             db.drop_all()
             print "Database clearing"
