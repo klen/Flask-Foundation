@@ -2,7 +2,8 @@
 # coding: utf-8
 from flask.ext.script import Manager
 
-from base.app import create_app, db
+from base.app import create_app
+from base.ext import db
 from base.script import CreateDB, DropDB, ResetDB
 from base.users.script import CreateUserCommand, CreateRoleCommand, AddRoleCommand, RemoveRoleCommand
 

@@ -1,6 +1,7 @@
 from flask.ext.testing import TestCase
 
-from base.app import create_app, db
+from base.app import create_app
+from base.ext import db
 
 from base.settings import Testing
 
@@ -20,6 +21,10 @@ class BaseTest(TestCase):
     def test_home(self):
         response = self.client.get('/')
         self.assert200(response)
+
+    def test_admin(self):
+        response = self.client.get('/admin/')
+        self.assert403(response)
 
     def test_users(self):
         from base.users.models import User

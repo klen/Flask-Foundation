@@ -6,7 +6,7 @@ from flask.ext.login import current_user
 class StaffAdminView(AdminIndexView):
     " Staff admin home page. "
     def is_accessible(self):
-        return current_user.permission('staff')
+        return current_user.is_authenticated() and current_user.permission('staff')
 
 
 class AuthModelView(ModelView):
@@ -15,7 +15,7 @@ class AuthModelView(ModelView):
         super(AuthModelView, self).__init__(*args, **kwargs)
 
     def is_accessible(self):
-        return current_user.permission(self.role)
+        return current_user.is_authenticated() and current_user.permission(self.role)
 
 
 # Create admin
