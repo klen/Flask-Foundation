@@ -5,8 +5,8 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from werkzeug import check_password_hash, generate_password_hash
 
 from base.admin import admin, AuthModelView
-from base.app import db
 from base.core import BaseMixin
+from base.ext import db
 
 
 userroles = db.Table('users_userroles',

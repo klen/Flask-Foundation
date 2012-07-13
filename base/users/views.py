@@ -4,7 +4,7 @@ from flask.ext.babel import lazy_gettext as _
 from .forms import RegisterForm, LoginForm
 from .manager import UserManager
 from .models import User
-from base.app import db
+from base.ext import db
 
 
 bp = UserManager('users', __name__, url_prefix='/users', template_folder='templates')

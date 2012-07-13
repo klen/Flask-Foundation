@@ -10,6 +10,7 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + op.join(__basedir__, '.db')
     CSRF_ENABLED = True
     CSRF_SESSION_KEY = "somethingimpossibletoguess"
+    BABEL_LANGUAGES = ['en', 'ru']
 
 
 class Production(Config):
