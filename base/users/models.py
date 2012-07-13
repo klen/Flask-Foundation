@@ -4,9 +4,8 @@ from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.ext.hybrid import hybrid_property
 from werkzeug import check_password_hash, generate_password_hash
 
-from base.admin import admin, AuthModelView
 from base.core import BaseMixin
-from base.ext import db
+from base.ext import db, admin
 
 
 userroles = db.Table('users_userroles',
@@ -29,7 +28,7 @@ class Role(db.Model, BaseMixin):
         return '<Role %r>' % (self.name)
 
 # Add view
-admin.add_view(AuthModelView(Role, db.session))
+admin.add_model(Role)
 
 
 class User(db.Model, UserMixin, BaseMixin):
@@ -75,4 +74,4 @@ class User(db.Model, UserMixin, BaseMixin):
         return '<User %r>' % (self.username)
 
 # Add view
-admin.add_view(AuthModelView(User, db.session))
+admin.add_model(User)

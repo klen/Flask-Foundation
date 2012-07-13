@@ -3,13 +3,14 @@ from flask.ext.bootstrap import Bootstrap
 from flask.ext.cache import Cache
 from flask.ext.babel import Babel
 from flask import request
-from admin import admin
+from admin import FlaskAdmin
 
 
 db = SQLAlchemy()
 bootstrap = Bootstrap()
 cache = Cache()
 babel = Babel()
+admin = FlaskAdmin(db)
 
 
 def config_extensions(app):
