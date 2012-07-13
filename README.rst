@@ -10,6 +10,8 @@ Quick start with Flask.
 * `Flask-babel <http://github.com/mitsuhiko/flask-babel>`_ (i18n);
 * `Flask-admin <https://github.com/mrjoes/flask-admin/>`_ (administration);
 * `Flask-script <http://github.com/rduplain/flask-script>`_ (administration);
+* `Flask-cache <http://packages.python.org/Flask-Cache/>`_ (cache);
+* `Flask-testing <http://packages.python.org/Flask-Testing/>`_ (testing);
 * Included user authentication system;
 * Usefull makefile shortcuts (make run, make db and etc);
 
