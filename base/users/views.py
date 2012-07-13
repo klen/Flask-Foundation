@@ -7,16 +7,16 @@ from .models import User
 from base.app import db
 
 
-users = UserManager('users', __name__, url_prefix='/users', template_folder='templates')
+bp = UserManager('users', __name__, url_prefix='/users', template_folder='templates')
 
 
-@users.route('/profile/')
-@users.login_required
+@bp.route('/profile/')
+@bp.login_required
 def profile():
     return render_template("users/profile.html")
 
 
-@users.route('/login/', methods=['POST'])
+@bp.route('/login/', methods=['POST'])
 def login():
     " View function which handles an authentication request. "
     form = LoginForm(request.form)
@@ -25,22 +25,22 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         # we use werzeug to validate user's password
         if user and user.check_password(form.password.data):
-            users.login(user)
+            bp.login(user)
             flash(_('Welcome %(user)s', user=user.username))
             return redirect(url_for('users.profile'))
         flash(_('Wrong email or password'), 'error-message')
-    return redirect(request.referrer or url_for(users._login_manager.login_view))
+    return redirect(request.referrer or url_for(bp._login_manager.login_view))
 
 
-@users.route('/logout/', methods=['GET'])
-@users.login_required
+@bp.route('/logout/', methods=['GET'])
+@bp.login_required
 def logout():
     " View function which handles a logout request. "
-    users.logout()
-    return redirect(request.referrer or url_for(users._login_manager.login_view))
+    bp.logout()
+    return redirect(request.referrer or url_for(bp._login_manager.login_view))
 
 
-@users.route('/register/', methods=['GET', 'POST'])
+@bp.route('/register/', methods=['GET', 'POST'])
 def register():
     " Registration Form. "
     form = RegisterForm(request.form)
@@ -55,7 +55,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        users.login(user)
+        bp.login(user)
 
         # flash will display a message to the user
         flash(_('Thanks for registering'))
