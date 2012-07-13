@@ -8,13 +8,14 @@ class CreateUserCommand(Command):
         Option('username'),
         Option('email'),
         Option('-a', '--active', dest='active', action='store_true'),
+        Option('-p', '--password', dest='password', default=''),
     )
 
-    def run(self, username=None, email=None, active=False):
+    def run(self, username=None, email=None, active=False, password=''):
         from base.users.models import User
-        from base.app import db
+        from base.ext import db
 
-        password = prompt_pass("Set password")
+        password = password or prompt_pass("Set password")
         user = User(username=username,
                         email=email,
                         pw_hash=password,
@@ -35,7 +36,7 @@ class CreateRoleCommand(Command):
 
     def run(self, name=None):
         from base.users.models import Role
-        from base.app import db
+        from base.ext import db
         role = Role(name=name)
 
         db.session.add(role)
@@ -54,7 +55,7 @@ class AddRoleCommand(Command):
 
     def run(self, username=None, role=None):
         from base.users.models import User, Role
-        from base.app import db
+        from base.ext import db
         u = User.query.filter_by(username=username).first()
         r = Role.query.filter_by(name=role).first()
         if u and r:
@@ -74,7 +75,7 @@ class RemoveRoleCommand(Command):
 
     def run(self, username=None, role=None):
         from base.users.models import User, Role
-        from base.app import db
+        from base.ext import db
         u = User.query.filter_by(username=username).first()
         r = Role.query.filter_by(name=role).first()
         if r in u.roles:

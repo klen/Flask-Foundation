@@ -12,7 +12,7 @@ class BaseTest(TestCase):
         return create_app(Testing)
 
     def setUp(self):
-        db.create_all(app=self.app)
+        db.create_all()
 
     def tearDown(self):
         db.session.remove()
@@ -56,3 +56,22 @@ class BaseTest(TestCase):
 
         user = User.query.filter(User.username == 'test2').first()
         self.assertEqual(user.email, 'test2@test.com')
+
+    def test_manager(self):
+        from flask.ext.script import Manager
+        from base.users.script import CreateRoleCommand, CreateUserCommand, AddRoleCommand
+        from base.users.models import Role, User
+
+        manager = Manager(self.app)
+        manager.add_command('create_role', CreateRoleCommand())
+        manager.add_command('create_user', CreateUserCommand())
+        manager.add_command('add_role', AddRoleCommand())
+
+        manager.handle('manage', 'create_role', ['test'])
+        role = Role.query.filter(Role.name == 'test').first()
+        self.assertEqual(role.name, 'test')
+
+        manager.handle('manage', 'create_user', 'test test@test.com -p 12345'.split())
+        user = User.query.filter(User.username == 'test').first()
+        manager.handle('manage', 'add_role', 'test test'.split())
+        self.assertTrue(role in user.roles)
