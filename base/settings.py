@@ -21,8 +21,8 @@ class Production(Config):
 
 class Testing(Production):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite://:memory:'
-    SQLALCHEMY_ECHO = True
+    CSRF_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
 
 class Develop(Production):

@@ -13,6 +13,8 @@ def create_app(config=None, **skip):
     app = Flask(__name__)
     app.config.from_object(config or settings.Production)
     app.config.from_envvar("APP_SETTINGS", silent=True)
+
+    # Init ORM
     db.init_app(app)
 
     # Main urlconfig
@@ -20,12 +22,13 @@ def create_app(config=None, **skip):
     app.register_blueprint(urls)
 
     # Users support
-    from users.views import users
-    app.register_blueprint(users)
+    from users.views import bp
+    app.register_blueprint(bp)
 
     # Admin
     from admin import admin
-    admin.init_app(app)
+    if not admin.app:
+        admin.init_app(app)
 
     # Bootstrap
     Bootstrap(app)
