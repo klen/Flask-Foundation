@@ -9,6 +9,16 @@ def create_app(config=None, **skip):
     app.config.from_object(config or settings.Production)
     app.config.from_envvar("APP_SETTINGS", silent=True)
 
+    app.errorhandler(404)(lambda e: (render_template('404.html'), 404))
+
+    config_extensions(app)
+    config_blueprints(app)
+
+    return app
+
+
+def config_blueprints(app):
+
     # Main urlconfig
     from views import urls
     app.register_blueprint(urls)
@@ -16,9 +26,3 @@ def create_app(config=None, **skip):
     # Users support
     from users.views import bp
     app.register_blueprint(bp)
-
-    app.errorhandler(404)(lambda e: (render_template('404.html'), 404))
-
-    config_extensions(app)
-
-    return app
