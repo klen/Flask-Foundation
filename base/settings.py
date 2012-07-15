@@ -5,6 +5,7 @@ __basedir__ = op.abspath(op.dirname(op.dirname(__file__)))
 
 
 class Config(object):
+    " Core settings. "
 
     # Database
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + op.join(__basedir__, '.db')
@@ -19,17 +20,23 @@ class Config(object):
 
 
 class Production(Config):
+    " Production settings must be here. "
+
     ADMINS = frozenset(['youremail@yourdomain.com'])
     SECRET_KEY = 'SecretKeyForSessionSigning'
 
 
 class Testing(Production):
-    TESTING = True
+    " Settings for running tests. "
+
+    # TESTING = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
     CSRF_ENABLED = False
-    CACHE_TYPE = 'null'
+    CACHE_TYPE = 'simple'
 
 
 class Develop(Production):
+    " Settings for develop process. "
+
     DEBUG = True
     SQLALCHEMY_ECHO = True
