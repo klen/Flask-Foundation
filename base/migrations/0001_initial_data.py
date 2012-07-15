@@ -4,7 +4,7 @@ from flask.ext.evolution import BaseMigration
 class Migration(BaseMigration):
 
     def up(self):
-        from base.app import db
+        from base.ext import db
         from base.users.models import Role, User
 
         admin = Role(name='admin')
