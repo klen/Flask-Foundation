@@ -75,3 +75,10 @@ class BaseTest(TestCase):
         user = User.query.filter(User.username == 'test').first()
         manager.handle('manage', 'add_role', 'test test'.split())
         self.assertTrue(role in user.roles)
+
+    def test_cache(self):
+        from base.ext import cache
+
+        cache.set('key', 'value')
+        test = cache.get('key')
+        self.assertEqual(test, 'value')
