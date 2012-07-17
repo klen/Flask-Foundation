@@ -18,6 +18,14 @@ class Config(object):
     BABEL_LANGUAGES = ['en', 'ru']
     BABEL_DEFAULT_LOCALE = 'en'
 
+    # Mail (gmail config)
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 465
+    MAIL_USE_SSL = True
+    MAIL_USERNAME = 'username@gmail.com'
+    MAIL_PASSWORD = '*********'
+    DEFAULT_MAIL_SENDER = 'Admin < %s >' % MAIL_USERNAME
+
 
 class Production(Config):
     " Production settings must be here. "
