@@ -3,13 +3,13 @@ from flask.ext.testing import TestCase
 from base.app import create_app
 from base.ext import db
 
-from base.settings import Testing
+from base.config import test
 
 
 class BaseTest(TestCase):
 
     def create_app(self):
-        return create_app(Testing)
+        return create_app(test)
 
     def setUp(self):
         db.create_all()
@@ -51,7 +51,7 @@ class BaseTest(TestCase):
             action_save=True,
             password='test',
             password_confirm='test',
-            ))
+        ))
         self.assertRedirects(response, '/users/profile/')
 
         user = User.query.filter(User.username == 'test2').first()
