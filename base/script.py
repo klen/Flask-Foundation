@@ -1,16 +1,17 @@
-from flask.ext.script import Command, prompt_bool
+from flaskext.script import Command, prompt_bool
 
 
 class CreateDB(Command):
     " Create DB structure. "
 
-    def run(self):
+    @staticmethod
+    def run():
         from base.ext import db
         db.create_all()
 
         # Evolution support
         from flask import current_app
-        from flask.ext.evolution import db as evolution_db
+        from flaskext.evolution import db as evolution_db
         evolution_db.init_app(current_app)
         evolution_db.create_all()
 
@@ -19,7 +20,9 @@ class CreateDB(Command):
 
 class DropDB(Command):
     " Drops all database tables. "
-    def run(self):
+
+    @staticmethod
+    def run():
         from base.ext import db
 
         if prompt_bool("Are you sure? You will lose all your data!"):
@@ -27,7 +30,7 @@ class DropDB(Command):
 
             # Evolution support
             from flask import current_app
-            from flask.ext.evolution import db as evolution_db
+            from flaskext.evolution import db as evolution_db
             evolution_db.init_app(current_app)
             evolution_db.drop_all()
 
@@ -36,6 +39,11 @@ class DropDB(Command):
 
 class ResetDB(Command):
     " Reset DB. "
-    def run(self):
+
+    @staticmethod
+    def run():
         DropDB().run()
         CreateDB().run()
+
+
+# pymode:lint_ignore=F0401

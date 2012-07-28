@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
-from flask.ext.script import Manager
+from flaskext.script import Manager
 
 from base.app import create_app
 from base.ext import db
 from base.script import CreateDB, DropDB, ResetDB
-from base.users.script import CreateUserCommand, CreateRoleCommand, AddRoleCommand, RemoveRoleCommand
+from base.auth.script import CreateUserCommand, CreateRoleCommand, AddRoleCommand, RemoveRoleCommand
 
 
 manager = Manager(create_app)
@@ -29,7 +29,7 @@ def make_shell_context():
 @manager.command
 def migrate(action):
     " Migration utils [create, run, undo, redo]. "
-    from flask.ext.evolution import Evolution
+    from flaskext.evolution import Evolution
     from flask import current_app
     evolution = Evolution(current_app)
     evolution.manager(action)
@@ -37,3 +37,5 @@ def migrate(action):
 
 if __name__ == '__main__':
     manager.run()
+
+# pymode:lint_ignore=F0401

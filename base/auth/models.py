@@ -1,5 +1,5 @@
-from flask.ext.login import UserMixin
-from flask.ext.principal import RoleNeed, Permission
+from flask_login import UserMixin
+from flask_principal import RoleNeed, Permission
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.ext.hybrid import hybrid_property
 from werkzeug import check_password_hash, generate_password_hash
@@ -8,7 +8,8 @@ from base.core import BaseMixin
 from base.ext import db, admin
 
 
-userroles = db.Table('users_userroles',
+userroles = db.Table(
+    'users_userroles',
     db.Column('user_id', db.Integer, db.ForeignKey('users_user.id')),
     db.Column('role_id', db.Integer, db.ForeignKey('users_role.id'))
 )
@@ -37,12 +38,17 @@ class User(db.Model, UserMixin, BaseMixin):
     __tablename__ = 'users_user'
 
     username = db.Column(db.String(50), unique=True)
-    email = db.Column(db.String(120), unique=True)
+    email = db.Column(db.String(120))
     active = db.Column(db.Boolean, default=True)
     _pw_hash = db.Column(db.String(199), nullable=False)
 
+    # OAuth creds
+    oauth_token = db.Column(db.String(200))
+    oauth_secret = db.Column(db.String(200))
+
     @declared_attr
-    def roles(cls):
+    def roles(self):
+        assert self
         return db.relationship("Role", secondary=userroles, backref="users")
 
     @hybrid_property
@@ -57,7 +63,8 @@ class User(db.Model, UserMixin, BaseMixin):
         """
         self._pw_hash = generate_password_hash(raw_password)
 
-    def permission(self, role):
+    @staticmethod
+    def permission(role):
         perm = Permission(RoleNeed(role))
         return perm.can()
 
@@ -75,3 +82,6 @@ class User(db.Model, UserMixin, BaseMixin):
 
 # Add view
 admin.add_model(User)
+
+
+# pymode:lint_ignore=E0611

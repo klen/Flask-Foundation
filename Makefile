@@ -3,7 +3,7 @@ PIP=$(ENVBIN)/pip
 PYTHON=$(ENVBIN)/python
 PYBABEL=$(ENVBIN)/pybabel
 BABELDIR=$(CURDIR)/base/translations
-CONFIG=base.settings.Develop
+CONFIG=base.config.develop
 
 all: .env
 

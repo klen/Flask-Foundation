@@ -1,5 +1,5 @@
 from flask import request, render_template, flash, redirect, url_for
-from flask.ext.babel import lazy_gettext as _
+from flaskext.babel import lazy_gettext as _
 
 from .forms import RegisterForm, LoginForm
 from .manager import UserManager
@@ -7,16 +7,16 @@ from .models import User
 from base.ext import db
 
 
-bp = UserManager('users', __name__, url_prefix='/users', template_folder='templates')
+users = UserManager('users', __name__, url_prefix='/users', template_folder='templates')
 
 
-@bp.route('/profile/')
-@bp.login_required
+@users.route('/profile/')
+@users.login_required
 def profile():
     return render_template("users/profile.html")
 
 
-@bp.route('/login/', methods=['POST'])
+@users.route('/login/', methods=['POST'])
 def login():
     " View function which handles an authentication request. "
     form = LoginForm(request.form)
@@ -25,22 +25,22 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         # we use werzeug to validate user's password
         if user and user.check_password(form.password.data):
-            bp.login(user)
+            users.login(user)
             flash(_('Welcome %(user)s', user=user.username))
             return redirect(url_for('users.profile'))
         flash(_('Wrong email or password'), 'error-message')
-    return redirect(request.referrer or url_for(bp._login_manager.login_view))
+    return redirect(request.referrer or url_for(users._login_manager.login_view))
 
 
-@bp.route('/logout/', methods=['GET'])
-@bp.login_required
+@users.route('/logout/', methods=['GET'])
+@users.login_required
 def logout():
     " View function which handles a logout request. "
-    bp.logout()
-    return redirect(request.referrer or url_for(bp._login_manager.login_view))
+    users.logout()
+    return redirect(request.referrer or url_for(users._login_manager.login_view))
 
 
-@bp.route('/register/', methods=['GET', 'POST'])
+@users.route('/register/', methods=['GET', 'POST'])
 def register():
     " Registration Form. "
     form = RegisterForm(request.form)
@@ -55,10 +55,13 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        bp.login(user)
+        users.login(user)
 
         # flash will display a message to the user
         flash(_('Thanks for registering'))
         # redirect user to the 'home' method of the user module.
         return redirect(url_for('users.profile'))
     return render_template("users/register.html", form=form)
+
+
+# pymode:lint_ignore=F0401
