@@ -49,8 +49,8 @@ class BaseMixin(UpdateMixin, TimestampMixin):
     id = Column(Integer, primary_key=True)
 
     @declared_attr
-    def __tablename__(cls):
-        return cls.__name__.lower()
+    def __tablename__(self):
+        return self.__name__.lower()
 
     @property
     def session(self):

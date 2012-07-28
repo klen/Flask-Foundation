@@ -1,6 +1,6 @@
 from flask import render_template, Blueprint
 
-from .users.forms import LoginForm
+from .auth.forms import LoginForm
 
 
 urls = Blueprint('urls', __name__)

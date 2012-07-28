@@ -1,6 +1,6 @@
 from flask import request
-from flask.ext.babel import lazy_gettext as _
-from flask.ext.wtf import Form, TextField, PasswordField, Required, Email, EqualTo, BooleanField, HiddenField, SubmitField
+from flaskext.babel import lazy_gettext as _
+from flask_wtf import Form, TextField, PasswordField, Required, Email, EqualTo, BooleanField, HiddenField, SubmitField
 
 
 class EmailFormMixin():
@@ -73,3 +73,6 @@ class ResetPasswordForm(Form,
         return dict(token=self.token.data,
                     email=self.email.data,
                     password=self.password.data)
+
+
+# pymode:lint_ignore=F0401

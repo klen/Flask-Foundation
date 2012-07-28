@@ -1,4 +1,4 @@
-from flask.ext.script import Command, Option, prompt_pass
+from flaskext.script import Command, Option, prompt_pass
 
 
 class CreateUserCommand(Command):
@@ -11,8 +11,9 @@ class CreateUserCommand(Command):
         Option('-p', '--password', dest='password', default=''),
     )
 
-    def run(self, username=None, email=None, active=False, password=''):
-        from base.users.models import User
+    @staticmethod
+    def run(username=None, email=None, active=False, password=''):
+        from .models import User
         from base.ext import db
 
         password = password or prompt_pass("Set password")
@@ -34,8 +35,9 @@ class CreateRoleCommand(Command):
         Option('name'),
     )
 
-    def run(self, name=None):
-        from base.users.models import Role
+    @staticmethod
+    def run(name=None):
+        from .models import Role
         from base.ext import db
         role = Role(name=name)
 
@@ -53,8 +55,9 @@ class AddRoleCommand(Command):
         Option('role'),
     )
 
-    def run(self, username=None, role=None):
-        from base.users.models import User, Role
+    @staticmethod
+    def run(username=None, role=None):
+        from .models import User, Role
         from base.ext import db
         u = User.query.filter_by(username=username).first()
         r = Role.query.filter_by(name=role).first()
@@ -73,8 +76,9 @@ class RemoveRoleCommand(Command):
         Option('role'),
     )
 
-    def run(self, username=None, role=None):
-        from base.users.models import User, Role
+    @staticmethod
+    def run(username=None, role=None):
+        from .models import User, Role
         from base.ext import db
         u = User.query.filter_by(username=username).first()
         r = Role.query.filter_by(name=role).first()
@@ -83,3 +87,6 @@ class RemoveRoleCommand(Command):
             db.session.add(u)
             db.session.commit()
         print "Role '%s' removed from user '%s' successfully" % (role, username)
+
+
+# pymode:lint_ignore=F0401
