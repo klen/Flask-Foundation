@@ -1,23 +1,12 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
             <a class="brand" href="/">Flask template</a>
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li>
-                    <a href="https://developers.google.com/appengine/docs/python/python27/using27">App Engine docs</a>
-                    </li>
-                    <li>
-                    <a href="http://flask.pocoo.org/">Flask docs</a>
-                    </li>
-                    <li>
-                    <a href="http://twitter.github.com/bootstrap">Bootstrap docs</a>
-                    </li>
+                    <li><a href="http://flask.pocoo.org/">Flask docs</a></li>
+                    <li><a href="http://twitter.github.com/bootstrap">Bootstrap docs</a></li>
+                    <li><a href="http://docs.sqlalchemy.org/en/rel_0_7/index.html">SQLAlchemy docs</a></li>
                 </ul>
                 <ul class="nav pull-right">
                     {% if current_user and current_user.is_authenticated() %}
@@ -34,21 +23,24 @@
                     {% elif loginform %}
                     {% import "bootstrap_wtf.html" as wtf %}
 
+                    <li>
+                        <a href="{{ url_for('login_twitter') }}">{{ _('twitter') }}</a>
+                    </li>
                     <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ _('Login') }}<b class="caret"></b></a>
-                    <div class="dropdown-menu well">
-                        <form class="form" action="{{ url_for('users.login') }}" method="POST">
-                            {{ loginform.hidden_tag() }}
-                            {{ wtf.form_errors(loginform, False) }}
-                            {{ wtf.horizontal_field(loginform.email) }}
-                            {{ wtf.horizontal_field(loginform.password) }}
-                            {{ wtf.horizontal_field(loginform.remember) }}
-                            <button name="action_save" type="submit" class="btn btn-primary">{{ _('Login') }}</button>
-                        </form>
-                    </div>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ _('Login') }}<b class="caret"></b></a>
+                        <div class="dropdown-menu well">
+                            <form class="form" action="{{ url_for('users.login') }}" method="POST">
+                                {{ loginform.hidden_tag() }}
+                                {{ wtf.form_errors(loginform, False) }}
+                                {{ wtf.horizontal_field(loginform.email) }}
+                                {{ wtf.horizontal_field(loginform.password) }}
+                                {{ wtf.horizontal_field(loginform.remember) }}
+                                <button name="action_save" type="submit" class="btn btn-primary">{{ _('Login') }}</button>
+                            </form>
+                        </div>
                     </li>
                     <li>
-                    <a href="{{ url_for('users.register') }}">{{ _('Register') }}</a>
+                        <a href="{{ url_for('users.register') }}">{{ _('Register') }}</a>
                     </li>
                     {% endif %}
                 </ul>

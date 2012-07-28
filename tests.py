@@ -1,4 +1,4 @@
-from flask.ext.testing import TestCase
+from flask_testing import TestCase
 
 from base.app import create_app
 from base.ext import db
@@ -27,7 +27,7 @@ class BaseTest(TestCase):
         self.assert403(response)
 
     def test_users(self):
-        from base.users.models import User
+        from base.auth.models import User
 
         response = self.client.post('/users/login/', data=dict())
         self.assertRedirects(response, '/')
@@ -58,9 +58,9 @@ class BaseTest(TestCase):
         self.assertEqual(user.email, 'test2@test.com')
 
     def test_manager(self):
-        from flask.ext.script import Manager
-        from base.users.script import CreateRoleCommand, CreateUserCommand, AddRoleCommand
-        from base.users.models import Role, User
+        from flaskext.script import Manager
+        from base.auth.script import CreateRoleCommand, CreateUserCommand, AddRoleCommand
+        from base.auth.models import Role, User
 
         manager = Manager(self.app)
         manager.add_command('create_role', CreateRoleCommand())
@@ -80,5 +80,13 @@ class BaseTest(TestCase):
         from base.ext import cache
 
         cache.set('key', 'value')
-        test = cache.get('key')
-        self.assertEqual(test, 'value')
+        testkey = cache.get('key')
+        self.assertEqual(testkey, 'value')
+
+    def test_oauth(self):
+        from flask import url_for
+
+        self.assertTrue(url_for('login_twitter'))
+
+
+# pymode:lint_ignore=F0401

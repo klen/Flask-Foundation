@@ -1,8 +1,9 @@
 from flask import Blueprint
-from flask.ext.login import LoginManager, login_required, logout_user, login_user, current_user
-from flask.ext.principal import Principal, identity_changed, Identity, AnonymousIdentity, identity_loaded, UserNeed, RoleNeed
+from flask_login import LoginManager, login_required, logout_user, login_user, current_user
+from flask_principal import Principal, identity_changed, Identity, AnonymousIdentity, identity_loaded, UserNeed, RoleNeed
 
 from .models import User
+from base.ext import db
 
 
 class UserManager(Blueprint):
@@ -31,13 +32,9 @@ class UserManager(Blueprint):
 
         super(UserManager, self).register(app, *args, **kwargs)
 
-    @property
-    def current(self):
-        return current_user
-
     @staticmethod
     def user_loader(pk):
-        return User.query.get(pk)
+        return User.query.options(db.joinedload(User.roles)).get(pk)
 
     @staticmethod
     def login_required(fn):
