@@ -10,3 +10,6 @@ def register_app(app):
     from flask_bootstrap import Bootstrap
     bootstrap = Bootstrap()
     bootstrap.init_app(app)
+
+    from flask import render_template
+    app.errorhandler(404)(lambda e: (render_template('core/404.html'), 404))
