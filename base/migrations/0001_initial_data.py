@@ -1,11 +1,11 @@
-from flask.ext.evolution import BaseMigration
+from flaskext.evolution import BaseMigration
 
 
 class Migration(BaseMigration):
 
     def up(self):
         from base.ext import db
-        from base.users.models import Role, User
+        from base.auth.models import Role, User
 
         admin = Role(name='admin')
         staff = Role(name='staff')

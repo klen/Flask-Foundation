@@ -1,7 +1,6 @@
 from flaskext.script import Command, Option, prompt_pass
 
-
-__all__ = 'Create_user', 'Create_role', 'Add_role', 'Remove_role'
+from ..ext import manager
 
 
 class Create_user(Command):
@@ -29,6 +28,7 @@ class Create_user(Command):
         db.session.commit()
 
         print 'User created successfully.'
+manager.add_command('create_user', Create_user())
 
 
 class Create_role(Command):
@@ -48,6 +48,8 @@ class Create_role(Command):
         db.session.commit()
 
         print 'Role "%s" created successfully.' % name
+
+manager.add_command('create_role', Create_role())
 
 
 class Add_role(Command):
@@ -69,6 +71,7 @@ class Add_role(Command):
             db.session.add(u)
             db.session.commit()
             print "Role '%s' added to user '%s' successfully" % (role, username)
+manager.add_command('add_role', Add_role())
 
 
 class Remove_role(Command):
@@ -91,5 +94,6 @@ class Remove_role(Command):
             db.session.commit()
         print "Role '%s' removed from user '%s' successfully" % (role, username)
 
+manager.add_command('remove_role', Add_role())
 
 # pymode:lint_ignore=F0401

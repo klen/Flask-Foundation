@@ -1,19 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
-import importlib
-
-from base.config.production import APPS
-from base.ext import db, manager
-
-
-for app in APPS:
-    try:
-        script = importlib.import_module("%s.script" % app)
-        for cmd in script.__all__:
-            cls = getattr(script, cmd)
-            manager.add_command(cls.__name__.lower(), cls())
-    except ImportError:
-        continue
+from base.ext import db
+from base.script import manager
 
 
 @manager.shell

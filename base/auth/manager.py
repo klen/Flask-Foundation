@@ -2,8 +2,8 @@ from flask import Blueprint
 from flask_login import LoginManager, login_required, logout_user, login_user, current_user
 from flask_principal import Principal, identity_changed, Identity, AnonymousIdentity, identity_loaded, UserNeed, RoleNeed
 
+from ..ext import db
 from .models import User
-from base.ext import db
 
 
 class UserManager(Blueprint):
