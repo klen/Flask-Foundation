@@ -1,7 +1,10 @@
 from flaskext.script import Command, Option, prompt_pass
 
 
-class CreateUserCommand(Command):
+__all__ = 'Create_user', 'Create_role', 'Add_role', 'Remove_role'
+
+
+class Create_user(Command):
     "  Create a user. "
 
     option_list = (
@@ -28,7 +31,7 @@ class CreateUserCommand(Command):
         print 'User created successfully.'
 
 
-class CreateRoleCommand(Command):
+class Create_role(Command):
     "  Create a role. "
 
     option_list = (
@@ -47,7 +50,7 @@ class CreateRoleCommand(Command):
         print 'Role "%s" created successfully.' % name
 
 
-class AddRoleCommand(Command):
+class Add_role(Command):
     "  Add a role to a user. "
 
     option_list = (
@@ -68,7 +71,7 @@ class AddRoleCommand(Command):
             print "Role '%s' added to user '%s' successfully" % (role, username)
 
 
-class RemoveRoleCommand(Command):
+class Remove_role(Command):
     "  Remove a role from user. "
 
     option_list = (

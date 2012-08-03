@@ -58,14 +58,9 @@ class BaseTest(TestCase):
         self.assertEqual(user.email, 'test2@test.com')
 
     def test_manager(self):
-        from flaskext.script import Manager
-        from base.auth.script import CreateRoleCommand, CreateUserCommand, AddRoleCommand
         from base.auth.models import Role, User
-
-        manager = Manager(self.app)
-        manager.add_command('create_role', CreateRoleCommand())
-        manager.add_command('create_user', CreateUserCommand())
-        manager.add_command('add_role', AddRoleCommand())
+        from manage import manager
+        manager.app = self.app
 
         manager.handle('manage', 'create_role', ['test'])
         role = Role.query.filter(Role.name == 'test').first()

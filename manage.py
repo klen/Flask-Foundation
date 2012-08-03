@@ -1,22 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
-from flaskext.script import Manager
+import importlib
 
-from base.app import create_app
-from base.ext import db
-from base.script import CreateDB, DropDB, ResetDB
-from base.auth.script import CreateUserCommand, CreateRoleCommand, AddRoleCommand, RemoveRoleCommand
+from base.config.production import APPS
+from base.ext import db, manager
 
 
-manager = Manager(create_app)
-manager.add_option("-c", "--config", dest="config", required=False)
-manager.add_command('create_user', CreateUserCommand())
-manager.add_command('create_role', CreateRoleCommand())
-manager.add_command('add_role', AddRoleCommand())
-manager.add_command('remove_role', RemoveRoleCommand())
-manager.add_command('create_db', CreateDB())
-manager.add_command('drop_db', DropDB())
-manager.add_command('reset_db', ResetDB())
+for app in APPS:
+    try:
+        script = importlib.import_module("%s.script" % app)
+        for cmd in script.__all__:
+            cls = getattr(script, cmd)
+            manager.add_command(cls.__name__.lower(), cls())
+    except ImportError:
+        continue
 
 
 @manager.shell

@@ -1,3 +1,5 @@
+# Flask template
+# --------------
 Flask>=0.9
 Flask-SQLAlchemy>=0.16
 Flask-Script>=0.3.3
