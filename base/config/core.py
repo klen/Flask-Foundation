@@ -15,4 +15,4 @@ BABEL_LANGUAGES = ['en', 'ru']
 BABEL_DEFAULT_LOCALE = 'en'
 
 # APPS
-APPS =  'auth',
+APPS =  'core', 'auth'

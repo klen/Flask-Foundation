@@ -1,15 +1,13 @@
 from flaskext.script import prompt_bool
 
-from .ext import manager
-from .utils import load_modules
-
-
-load_modules('script')
+from ..ext import manager
 
 
 @manager.command
 def create_db():
-    from base.ext import db
+    " Create database. "
+
+    from ..ext import db
     db.create_all()
 
     # Evolution support
@@ -23,7 +21,9 @@ def create_db():
 
 @manager.command
 def drop_db():
-    from base.ext import db
+    " Drop all tables. "
+
+    from ..ext import db
 
     if prompt_bool("Are you sure? You will lose all your data!"):
         db.drop_all()
@@ -39,6 +39,8 @@ def drop_db():
 
 @manager.command
 def reset_db():
+    " Drop and create all tables. "
+
     drop_db()
     create_db()
 
