@@ -61,9 +61,9 @@ class OAuthTwitter(OAuthBase):
     name = 'twitter'
 
     def authorize(self, resp):
-        from base.ext import db
+        from .ext import db
         from .auth.models import User
-        from .auth.views import users
+        from .auth.views import blueprint
 
         next_url = request.args.get('next') or url_for('urls.index')
         if resp is None:
@@ -84,7 +84,7 @@ class OAuthTwitter(OAuthBase):
         user.oauth_secret = resp['oauth_token_secret']
         db.session.commit()
 
-        users.login(user)
+        blueprint.login(user)
 
         flash(_('Welcome %(user)s', user=user.username))
         return redirect(next_url)

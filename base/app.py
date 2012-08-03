@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 
-from base.config import production
+from .config import production
+from .utils import load_modules
 
 
 def create_app(config=None, **skip):
@@ -23,6 +24,5 @@ def config_blueprints(app):
     from .views import urls
     app.register_blueprint(urls)
 
-    # Users support
-    from .auth.views import users
-    app.register_blueprint(users)
+    for views in load_modules('views'):
+        app.register_blueprint(views.blueprint)

@@ -1,52 +1,46 @@
-from flaskext.script import Command, prompt_bool
+from flaskext.script import prompt_bool
+
+from .ext import manager
+from .utils import load_modules
 
 
-__all__ = 'Create_DB', 'Drop_DB', 'Reset_DB'
+load_modules('script')
 
 
-class Create_DB(Command):
-    " Create DB structure. "
+@manager.command
+def create_db():
+    from base.ext import db
+    db.create_all()
 
-    @staticmethod
-    def run():
-        from base.ext import db
-        db.create_all()
+    # Evolution support
+    from flask import current_app
+    from flaskext.evolution import db as evolution_db
+    evolution_db.init_app(current_app)
+    evolution_db.create_all()
+
+    print "Database created successfuly"
+
+
+@manager.command
+def drop_db():
+    from base.ext import db
+
+    if prompt_bool("Are you sure? You will lose all your data!"):
+        db.drop_all()
 
         # Evolution support
         from flask import current_app
         from flaskext.evolution import db as evolution_db
         evolution_db.init_app(current_app)
-        evolution_db.create_all()
+        evolution_db.drop_all()
 
-        print "Database created successfuly"
-
-
-class Drop_DB(Command):
-    " Drops all database tables. "
-
-    @staticmethod
-    def run():
-        from base.ext import db
-
-        if prompt_bool("Are you sure? You will lose all your data!"):
-            db.drop_all()
-
-            # Evolution support
-            from flask import current_app
-            from flaskext.evolution import db as evolution_db
-            evolution_db.init_app(current_app)
-            evolution_db.drop_all()
-
-            print "Database clearing"
+        print "Database clearing"
 
 
-class Reset_DB(Command):
-    " Reset DB. "
-
-    @staticmethod
-    def run():
-        Drop_DB().run()
-        Create_DB().run()
+@manager.command
+def reset_db():
+    drop_db()
+    create_db()
 
 
 # pymode:lint_ignore=F0401

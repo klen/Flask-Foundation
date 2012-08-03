@@ -4,8 +4,8 @@ from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.ext.hybrid import hybrid_property
 from werkzeug import check_password_hash, generate_password_hash
 
-from base.core import BaseMixin
-from base.ext import db, admin
+from ..core import BaseMixin
+from ..ext import db, admin
 
 
 userroles = db.Table(

@@ -1,22 +1,22 @@
 from flask import request, render_template, flash, redirect, url_for
 from flaskext.babel import lazy_gettext as _
 
+from ..ext import db
 from .forms import RegisterForm, LoginForm
 from .manager import UserManager
 from .models import User
-from base.ext import db
 
 
-users = UserManager('users', __name__, url_prefix='/users', template_folder='templates')
+blueprint = UserManager('users', __name__, url_prefix='/users', template_folder='templates')
 
 
-@users.route('/profile/')
-@users.login_required
+@blueprint.route('/profile/')
+@blueprint.login_required
 def profile():
     return render_template("users/profile.html")
 
 
-@users.route('/login/', methods=['POST'])
+@blueprint.route('/login/', methods=['POST'])
 def login():
     " View function which handles an authentication request. "
     form = LoginForm(request.form)
@@ -25,22 +25,22 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         # we use werzeug to validate user's password
         if user and user.check_password(form.password.data):
-            users.login(user)
+            blueprint.login(user)
             flash(_('Welcome %(user)s', user=user.username))
             return redirect(url_for('users.profile'))
         flash(_('Wrong email or password'), 'error-message')
-    return redirect(request.referrer or url_for(users._login_manager.login_view))
+    return redirect(request.referrer or url_for(blueprint._login_manager.login_view))
 
 
-@users.route('/logout/', methods=['GET'])
-@users.login_required
+@blueprint.route('/logout/', methods=['GET'])
+@blueprint.login_required
 def logout():
     " View function which handles a logout request. "
-    users.logout()
-    return redirect(request.referrer or url_for(users._login_manager.login_view))
+    blueprint.logout()
+    return redirect(request.referrer or url_for(blueprint._login_manager.login_view))
 
 
-@users.route('/register/', methods=['GET', 'POST'])
+@blueprint.route('/register/', methods=['GET', 'POST'])
 def register():
     " Registration Form. "
     form = RegisterForm(request.form)
@@ -55,7 +55,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        users.login(user)
+        blueprint.login(user)
 
         # flash will display a message to the user
         flash(_('Thanks for registering'))
