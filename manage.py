@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
-from base.ext import db
-from base.script import manager
+from base.app import load_modules
+from base.ext import db, manager
+
+
+load_modules('script')
 
 
 @manager.shell

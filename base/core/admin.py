@@ -2,6 +2,8 @@ from flask_admin import AdminIndexView, Admin
 from flask_admin.contrib.sqlamodel import ModelView
 from flask_login import current_user
 
+from ..ext import db
+
 
 class StaffAdminView(AdminIndexView):
     " Staff admin home page. "
@@ -29,7 +31,8 @@ class FlaskAdmin(Admin):
             super(FlaskAdmin, self).init_app(app)
 
     def add_model(self, model, view=None, role='admin', **kwargs):
-        from base.ext import db
-
         view = view or AuthModelView
         self.add_view(view(model, db.session))
+
+
+admin = FlaskAdmin()

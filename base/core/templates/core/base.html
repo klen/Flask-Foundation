@@ -4,10 +4,10 @@
 
     {# Navbar #}
     {% block navigation %}
-        {% include 'blocks/nav.html' %}
+        {% include 'core/blocks/nav.html' %}
     {% endblock %}
 
-    {% include "blocks/messages.html" %}
+    {% include "core/blocks/messages.html" %}
 
     <div class="container">
         {% block page_content %}{% endblock %}

@@ -1,7 +1,12 @@
 from flask import url_for, request, flash, redirect
-from flaskext.babel import lazy_gettext as _
 from flask_login import current_user
+from flaskext.babel import lazy_gettext as _
+from flaskext.oauth import OAuth
 from random import choice
+
+from ..ext import db
+from .models import User
+from .views import users
 
 
 ASCII_LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
@@ -9,7 +14,10 @@ PROVIDERS = 'twitter',
 CLIENTS = dict()
 
 
-def config_oauth(oauth, app):
+oauth = OAuth()
+
+
+def config_oauth(app):
     " Configure oauth support. "
 
     for name in PROVIDERS:
@@ -61,10 +69,6 @@ class OAuthTwitter(OAuthBase):
     name = 'twitter'
 
     def authorize(self, resp):
-        from .ext import db
-        from .auth.models import User
-        from .auth.views import blueprint
-
         next_url = request.args.get('next') or url_for('urls.index')
         if resp is None:
             flash(_(u'You denied the request to sign in.'))
@@ -84,7 +88,7 @@ class OAuthTwitter(OAuthBase):
         user.oauth_secret = resp['oauth_token_secret']
         db.session.commit()
 
-        blueprint.login(user)
+        users.login(user)
 
         flash(_('Welcome %(user)s', user=user.username))
         return redirect(next_url)
