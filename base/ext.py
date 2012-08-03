@@ -2,12 +2,14 @@ from flask import request
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flaskext.babel import Babel
+from flaskext.script import Manager
 from flaskext.cache import Cache
 from flaskext.mail import Mail
 from flaskext.oauth import OAuth
 
 from .admin import FlaskAdmin
 from .oauth import config_oauth
+from .app import create_app
 
 
 admin = FlaskAdmin()
@@ -17,6 +19,9 @@ cache = Cache()
 db = SQLAlchemy()
 oauth = OAuth()
 main = Mail()
+
+manager = Manager(create_app)
+manager.add_option("-c", "--config", dest="config", required=False)
 
 
 def config_extensions(app):

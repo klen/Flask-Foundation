@@ -1,7 +1,10 @@
 from flaskext.script import Command, prompt_bool
 
 
-class CreateDB(Command):
+__all__ = 'Create_DB', 'Drop_DB', 'Reset_DB'
+
+
+class Create_DB(Command):
     " Create DB structure. "
 
     @staticmethod
@@ -18,7 +21,7 @@ class CreateDB(Command):
         print "Database created successfuly"
 
 
-class DropDB(Command):
+class Drop_DB(Command):
     " Drops all database tables. "
 
     @staticmethod
@@ -37,13 +40,13 @@ class DropDB(Command):
             print "Database clearing"
 
 
-class ResetDB(Command):
+class Reset_DB(Command):
     " Reset DB. "
 
     @staticmethod
     def run():
-        DropDB().run()
-        CreateDB().run()
+        Drop_DB().run()
+        Create_DB().run()
 
 
 # pymode:lint_ignore=F0401

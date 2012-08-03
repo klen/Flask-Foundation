@@ -1,7 +1,6 @@
 from flask import Flask, render_template
 
 from base.config import production
-from .ext import config_extensions
 
 
 def create_app(config=None, **skip):
@@ -11,6 +10,7 @@ def create_app(config=None, **skip):
 
     app.errorhandler(404)(lambda e: (render_template('404.html'), 404))
 
+    from .ext import config_extensions
     config_extensions(app)
     config_blueprints(app)
 
