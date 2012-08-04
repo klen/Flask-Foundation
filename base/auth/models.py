@@ -5,7 +5,6 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from werkzeug import check_password_hash, generate_password_hash
 
 from ..core.models import BaseMixin
-from ..core.admin import admin
 from ..ext import db
 
 
@@ -28,9 +27,6 @@ class Role(db.Model, BaseMixin):
 
     def __repr__(self):
         return '<Role %r>' % (self.name)
-
-# Add view
-admin.add_model(Role)
 
 
 class User(db.Model, UserMixin, BaseMixin):
@@ -80,9 +76,6 @@ class User(db.Model, UserMixin, BaseMixin):
 
     def __repr__(self):
         return '<User %r>' % (self.username)
-
-# Add view
-admin.add_model(User)
 
 
 # pymode:lint_ignore=E0611

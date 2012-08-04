@@ -2,6 +2,7 @@ from flask_admin import AdminIndexView, Admin
 from flask_admin.contrib.sqlamodel import ModelView
 from flask_login import current_user
 
+from ..app import load_modules
 from ..ext import db
 
 
@@ -27,12 +28,13 @@ class FlaskAdmin(Admin):
         super(FlaskAdmin, self).__init__(index_view=StaffAdminView(), **kwargs)
 
     def init_app(self, app):
-        if not self.app:
-            super(FlaskAdmin, self).init_app(app)
+        super(FlaskAdmin, self).init_app(app)
+        app.admin = self
+        with app.test_request_context():
+            for mod in load_modules('admin'):
+                assert mod
+
 
     def add_model(self, model, view=None, role='admin', **kwargs):
         view = view or AuthModelView
         self.add_view(view(model, db.session))
-
-
-admin = FlaskAdmin()
