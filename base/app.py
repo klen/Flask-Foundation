@@ -1,4 +1,3 @@
-import importlib
 from flask import Flask
 
 from .config import production
@@ -12,23 +11,7 @@ def create_app(config=None, **skip):
     from .ext import config_extensions
     config_extensions(app)
 
-    for mod in load_modules('register', app):
-        try:
-            mod.register_app(app)
-        except AttributeError:
-            app.logger.error('Invalid mod: %s' % mod)
+    from .loader import loader
+    loader.register(app)
 
     return app
-
-
-def load_modules(name, app=None):
-    " Load modules by apps. "
-
-    apps = app and app.config.get('APPS') or production.APPS
-    mods = []
-    for app in apps:
-        try:
-            mods.append(importlib.import_module('base.%s.%s' % (app, name)))
-        except ImportError:
-            continue
-    return mods

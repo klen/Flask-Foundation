@@ -1,8 +1,6 @@
-from flask import current_app
-
+from ..core.ext import admin
 from .models import User, Role
 
 
-current_app.admin.add_model(User)
-
-current_app.admin.add_model(Role)
+admin.add_model(User)
+admin.add_model(Role)
