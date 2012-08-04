@@ -4,6 +4,7 @@ from flaskext.babel import Babel
 from flaskext.cache import Cache
 from flaskext.mail import Mail
 from flaskext.script import Manager
+from flask_collect import Collect
 
 from .app import create_app
 
@@ -16,6 +17,9 @@ main = Mail()
 manager = Manager(create_app)
 manager.add_option("-c", "--config", dest="config", required=False)
 
+collect = Collect()
+collect.init_script(manager)
+
 
 def config_extensions(app):
     " Init application with extensions. "
@@ -23,6 +27,7 @@ def config_extensions(app):
     cache.init_app(app)
     db.init_app(app)
     main.init_app(app)
+    collect.init_app(app)
 
     config_babel(app)
 
