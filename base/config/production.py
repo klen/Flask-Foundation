@@ -1,6 +1,7 @@
 " Production settings must be here. "
 
 from .core import *
+from os import path as op
 
 
 SECRET_KEY = 'SecretKeyForSessionSigning'
@@ -14,6 +15,7 @@ MAIL_PASSWORD = '*********'
 DEFAULT_MAIL_SENDER = 'Admin < %s >' % MAIL_USERNAME
 
 ADMINS = frozenset([MAIL_USERNAME])
+COLLECT_STATIC_DIR = op.join(op.dirname(ROOTDIR), 'static')
 
 OAUTH_TWITTER = dict(
     base_url='http://api.twitter.com/1/',
