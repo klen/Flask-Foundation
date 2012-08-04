@@ -4,7 +4,8 @@ def register_app(app):
     from .views import urls
     app.register_blueprint(urls)
 
-    from .admin import admin
+    from .admin import FlaskAdmin
+    admin = FlaskAdmin()
     admin.init_app(app)
 
     from flask_bootstrap import Bootstrap

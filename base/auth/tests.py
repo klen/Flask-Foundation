@@ -1,12 +1,11 @@
 from flask_testing import TestCase
 
-from base.app import create_app
-from base.ext import db
+from ..app import create_app
+from ..config import test
+from ..ext import db
 
-from base.config import test
 
-
-class BaseTest(TestCase):
+class BaseCoreTest(TestCase):
 
     def create_app(self):
         return create_app(test)
@@ -17,14 +16,6 @@ class BaseTest(TestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
-
-    def test_home(self):
-        response = self.client.get('/')
-        self.assert200(response)
-
-    def test_admin(self):
-        response = self.client.get('/admin/')
-        self.assert403(response)
 
     def test_users(self):
         from base.auth.models import User
@@ -71,17 +62,7 @@ class BaseTest(TestCase):
         manager.handle('manage', 'add_role', 'test test'.split())
         self.assertTrue(role in user.roles)
 
-    def test_cache(self):
-        from base.ext import cache
-
-        cache.set('key', 'value')
-        testkey = cache.get('key')
-        self.assertEqual(testkey, 'value')
-
     def test_oauth(self):
         from flask import url_for
 
         self.assertTrue(url_for('login_twitter'))
-
-
-# pymode:lint_ignore=F0401
