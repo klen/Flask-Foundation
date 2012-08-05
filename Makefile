@@ -49,3 +49,7 @@ babel: $(BABELDIR)/ru
 
 $(BABELDIR)/ru:
 	$(PYBABEL) init -i $(BABELDIR)/babel.pot -d $(BABELDIR) -l ru
+
+.PHONY: chown
+chown:
+	sudo chown $(USER):$(USER) -R $(CURDIR)
