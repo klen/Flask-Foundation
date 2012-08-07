@@ -26,7 +26,7 @@ class BaseCoreTest(TestCase):
         user = User(username='test', pw_hash='test', email='test@test.com')
         db.session.add(user)
         db.session.commit()
-        self.assertTrue(user.updated)
+        self.assertTrue(user.updated_at)
 
         response = self.client.post('/users/login/', data=dict(
             email='test@test.com',
