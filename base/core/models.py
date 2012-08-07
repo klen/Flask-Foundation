@@ -34,7 +34,7 @@ class TimestampMixin(object):
     """
 
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
-    updated_at = Column(DateTime, onupdate=datetime.utcnow)
+    updated_at = Column(DateTime, onupdate=datetime.utcnow, default=datetime.utcnow)
 
 
 class BaseMixin(UpdateMixin, TimestampMixin):
