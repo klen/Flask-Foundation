@@ -8,7 +8,7 @@ from ..ext import db
 class BaseCoreTest(TestCase):
 
     def create_app(self):
-        return create_app(test)
+        return create_app(test, AUTH_USER_MIXINS=('base.auth.tests.TestUserMixin',))
 
     def setUp(self):
         db.create_all()
