@@ -1,14 +1,13 @@
+from flask import current_app
 from flask_testing import TestCase
 
-from ..app import create_app
-from ..config import test
 from ..ext import db
 
 
 class BaseCoreTest(TestCase):
 
     def create_app(self):
-        return create_app(test, AUTH_USER_MIXINS=('base.auth.tests.TestUserMixin',))
+        return current_app
 
     def setUp(self):
         db.create_all()
@@ -55,16 +54,16 @@ class BaseCoreTest(TestCase):
 
     def test_manager(self):
         from base.auth.models import Role, User
-        from manage import manager
-        manager.app = self.app
+        from base.auth.script import Create_role, Create_user, Add_role
 
-        manager.handle('manage', 'create_role', ['test'])
+        Create_role.run('test')
         role = Role.query.filter(Role.name == 'test').first()
         self.assertEqual(role.name, 'test')
 
-        manager.handle('manage', 'create_user', 'test test@test.com -p 12345'.split())
+        Create_user.run('test', 'test@test.com', active=True, password='12345')
         user = User.query.filter(User.username == 'test').first()
-        manager.handle('manage', 'add_role', 'test test'.split())
+
+        Add_role.run('test', 'test')
         self.assertTrue(role in user.roles)
 
     def test_oauth(self):

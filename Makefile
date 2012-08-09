@@ -34,7 +34,7 @@ migrate: .env/ manage.py .db
 
 .PHONY: test
 test: .env/ manage.py
-	nosetests
+	$(PYTHON) manage.py test -c base.config.test
 
 .PHONY: clean
 clean:

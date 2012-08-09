@@ -23,6 +23,15 @@ def migrate(action):
     evolution = Evolution(current_app)
     evolution.manager(action)
 
+@manager.command
+def test():
+    " Run tests. "
+    from unittest.loader import defaultTestLoader
+    from unittest.runner import TextTestRunner
+
+    suites = [defaultTestLoader.loadTestsFromModule(mod) for mod in loader.load_submod('tests')]
+    suite = defaultTestLoader.suiteClass(suites)
+    TextTestRunner().run(suite)
 
 if __name__ == '__main__':
     manager.run()

@@ -1,14 +1,13 @@
+from flask import current_app
 from flask_testing import TestCase
 
-from ..app import create_app
-from ..config import test
 from ..ext import db
 
 
 class BaseCoreTest(TestCase):
 
     def create_app(self):
-        return create_app(test)
+        return current_app
 
     def setUp(self):
         db.create_all()
