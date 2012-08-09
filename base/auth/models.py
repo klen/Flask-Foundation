@@ -1,5 +1,6 @@
 from flask_login import UserMixin
 from flask_principal import RoleNeed, Permission
+from random import choice
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.ext.hybrid import hybrid_property
 from werkzeug import check_password_hash, generate_password_hash
@@ -7,6 +8,8 @@ from werkzeug import check_password_hash, generate_password_hash
 from ..core.models import BaseMixin
 from ..ext import db
 
+
+PSYMBOLS = 'abcdefghijklmnopqrstuvwxyz123456789'
 
 userroles = db.Table(
     'users_userroles',
@@ -65,6 +68,9 @@ class User(db.Model, UserMixin, BaseMixin):
         perm = Permission(RoleNeed(role))
         return perm.can()
 
+    def generate_password(self):
+        self.pw_hash = ''.join(choice(PSYMBOLS) for c in xrange(8))
+
     def check_password(self, password):
         return check_password_hash(self.pw_hash, password)
 
@@ -78,4 +84,4 @@ class User(db.Model, UserMixin, BaseMixin):
         return '<User %r>' % (self.username)
 
 
-# pymode:lint_ignore=E0611
+# pymode:lint_ignore=E0611,E0202

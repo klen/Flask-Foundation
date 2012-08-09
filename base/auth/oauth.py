@@ -2,14 +2,12 @@ from flask import url_for, request, flash, redirect
 from flask_login import current_user
 from flaskext.babel import lazy_gettext as _
 from flaskext.oauth import OAuth
-from random import choice
 
 from ..ext import db
 from .models import User
 from .views import users
 
 
-ASCII_LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
 PROVIDERS = 'twitter',
 CLIENTS = dict()
 
@@ -79,9 +77,8 @@ class OAuthTwitter(OAuthBase):
             user = User.query.filter(User.username == resp['screen_name']).first()
 
             if user is None:
-                user = User(
-                    username=resp['screen_name'],
-                    pw_hash=''.join(choice(ASCII_LOWERCASE) for c in xrange(15)))
+                user = User(username=resp['screen_name'])
+                user.generate_password()
                 db.session.add(user)
 
         user.oauth_token = resp['oauth_token']
