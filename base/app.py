@@ -8,10 +8,12 @@ def create_app(config=None, **skip):
     app.config.from_object(config or production)
     app.config.from_envvar("APP_SETTINGS", silent=True)
 
-    from .ext import config_extensions
-    config_extensions(app)
+    with app.test_request_context():
 
-    from .loader import loader
-    loader.register(app)
+        from .ext import config_extensions
+        config_extensions(app)
+
+        from .loader import loader
+        loader.register(app)
 
     return app

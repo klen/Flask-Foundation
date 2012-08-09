@@ -17,6 +17,10 @@ class BaseCoreTest(TestCase):
         db.session.remove()
         db.drop_all()
 
+    def test_model_mixin(self):
+        from base.auth.models import User
+        self.assertTrue(User.do_true())
+
     def test_users(self):
         from base.auth.models import User
 
@@ -67,3 +71,10 @@ class BaseCoreTest(TestCase):
         from flask import url_for
 
         self.assertTrue(url_for('login_twitter'))
+
+
+class TestUserMixin(object):
+
+    @staticmethod
+    def do_true():
+        return True
