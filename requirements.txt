@@ -13,6 +13,5 @@ Flask-Testing>=0.4
 Flask-Mail>=0.6.1
 Flask-OAuth>=0.11
 Flask-Collect>=0.1.1
-git+git://github.com/tomasd/flask-evolution.git#egg=Flask-Evolution==0.4
 straight.plugin>=1.4.0-post-1
-
+alembic==0.3.5

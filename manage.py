@@ -2,6 +2,7 @@
 # coding: utf-8
 from base.ext import db, manager
 from base.loader import loader
+import sys
 
 
 # Load app scripts
@@ -16,12 +17,11 @@ def make_shell_context():
 
 
 @manager.command
-def migrate(action):
-    " Migration utils [create, run, undo, redo]. "
-    from flaskext.evolution import Evolution
-    from flask import current_app
-    evolution = Evolution(current_app)
-    evolution.manager(action)
+def migrate():
+    " Migration utils. "
+    from alembic.config import main
+    main(ARGV)
+
 
 @manager.command
 def test():
@@ -33,7 +33,16 @@ def test():
     suite = defaultTestLoader.suiteClass(suites)
     TextTestRunner().run(suite)
 
+
+ARGV = []
+
 if __name__ == '__main__':
+    argv = sys.argv[1:]
+    if argv and argv[0] == 'migrate':
+        ARGV = list(argv[1:])
+        sys.argv[0] += ' migrate'
+        sys.argv = sys.argv[:2]
+
     manager.run()
 
 # pymode:lint_ignore=F0401
