@@ -1,14 +1,13 @@
+from flask import current_app
 from flask_testing import TestCase
 
-from ..app import create_app
-from ..config import test
 from ..ext import db
 
 
 class BaseCoreTest(TestCase):
 
     def create_app(self):
-        return create_app(test)
+        return current_app
 
     def setUp(self):
         db.create_all()
@@ -16,6 +15,10 @@ class BaseCoreTest(TestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+
+    def test_model_mixin(self):
+        from base.auth.models import User
+        self.assertTrue(User.do_true())
 
     def test_users(self):
         from base.auth.models import User
@@ -26,6 +29,7 @@ class BaseCoreTest(TestCase):
         user = User(username='test', pw_hash='test', email='test@test.com')
         db.session.add(user)
         db.session.commit()
+        self.assertTrue(user.updated_at)
 
         response = self.client.post('/users/login/', data=dict(
             email='test@test.com',
@@ -50,19 +54,26 @@ class BaseCoreTest(TestCase):
 
     def test_manager(self):
         from base.auth.models import Role, User
-        from manage import manager
-        manager.app = self.app
+        from base.auth.script import Create_role, Create_user, Add_role
 
-        manager.handle('manage', 'create_role', ['test'])
+        Create_role.run('test')
         role = Role.query.filter(Role.name == 'test').first()
         self.assertEqual(role.name, 'test')
 
-        manager.handle('manage', 'create_user', 'test test@test.com -p 12345'.split())
+        Create_user.run('test', 'test@test.com', active=True, password='12345')
         user = User.query.filter(User.username == 'test').first()
-        manager.handle('manage', 'add_role', 'test test'.split())
+
+        Add_role.run('test', 'test')
         self.assertTrue(role in user.roles)
 
     def test_oauth(self):
         from flask import url_for
 
         self.assertTrue(url_for('login_twitter'))
+
+
+class TestUserMixin(object):
+
+    @staticmethod
+    def do_true():
+        return True

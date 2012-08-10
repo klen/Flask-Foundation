@@ -34,7 +34,7 @@ migrate: .env/ manage.py .db
 
 .PHONY: test
 test: .env/ manage.py
-	nosetests
+	$(PYTHON) manage.py test -c base.config.test
 
 .PHONY: clean
 clean:
@@ -49,3 +49,7 @@ babel: $(BABELDIR)/ru
 
 $(BABELDIR)/ru:
 	$(PYBABEL) init -i $(BABELDIR)/babel.pot -d $(BABELDIR) -l ru
+
+.PHONY: chown
+chown:
+	sudo chown $(USER):$(USER) -R $(CURDIR)

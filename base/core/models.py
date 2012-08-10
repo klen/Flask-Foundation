@@ -34,13 +34,11 @@ class TimestampMixin(object):
     """
 
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
-    updated_at = Column(DateTime, onupdate=datetime.utcnow)
+    updated_at = Column(DateTime, onupdate=datetime.utcnow, default=datetime.utcnow)
 
 
 class BaseMixin(UpdateMixin, TimestampMixin):
     """Provieds all benefits of
-    :class:`~pyramid_alchauth.models.UpdateMixin` and
-    :class:`~pyramid_alchauth.models.TimestampMixin` as well as
     providing a deform compatible appstruct property and an easy way to
     query VersionedMeta. It also defines an id column to save on boring
     boilerplate.
