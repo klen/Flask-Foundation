@@ -1,3 +1,8 @@
+2012-08-10  klen
+
+	* Version 0.3.0
+	* Migrate to alembic
+
 2012-08-05  klen
 
 	* Added Flask-Collect
