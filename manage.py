@@ -20,7 +20,7 @@ def make_shell_context():
 def migrate():
     " Migration utils. "
     from alembic.config import main
-    main(ARGV)
+    main(filter(lambda a: a != '-c' and not a.startswith('base.config.'), ARGV))
 
 
 @manager.command
