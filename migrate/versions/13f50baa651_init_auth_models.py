@@ -51,21 +51,6 @@ def upgrade():
             db.Column('role_id', db.Integer, db.ForeignKey('users_role.id')),
     )
 
-    from base.ext import db as basedb
-    from base.auth.models import User, Role
-
-    admin = Role(name='admin')
-    staff = Role(name='staff')
-
-    user = User(username='admin',
-            email='admin@admin.com',
-            pw_hash='admin')
-
-    user.roles.append(admin)
-    user.roles.append(staff)
-    basedb.session.add(user)
-    basedb.session.commit()
-
 
 def downgrade():
     op.drop_table('users_role')
