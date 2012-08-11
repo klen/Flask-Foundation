@@ -16,3 +16,6 @@ BABEL_DEFAULT_LOCALE = 'en'
 
 # Auth
 AUTH_USER_MIXINS = []
+
+# Urls
+CORE_URLS = True
