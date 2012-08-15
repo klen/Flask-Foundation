@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Flask Template Project
+title: Flask-Foundation
 description: Quick start with Flask.
 ---
 
-Flask Template Project
-======================
+Flask-Foundation
+================
 
-![travis-ci](https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=develop)
+ [![Build Status](https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=master)](http://travis-ci.org/klen/Flask-Foundation)
 
 Quick start with Flask.
 
@@ -45,4 +45,8 @@ Usage:
 
 Run development server:
 
-    make run
+    $ make run
+
+See also:
+
+    $ ./manage.py
