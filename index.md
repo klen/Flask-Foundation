@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Hello World!
+title: Flask Template Project
+description: Quick start with Flask.
 ---
 
 Flask Template Project
