@@ -9,6 +9,6 @@ branches:
         - master
         - develop
 
-install: pip install -r requirements.txt
+install: pip install -IM -r requirements.txt
 
 script: python manage.py test -c base.config.test
