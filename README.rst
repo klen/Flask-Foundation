@@ -1,6 +1,9 @@
 Flask Template Project
 ======================
 
+.. image:: https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=master
+.. image:: https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=develop
+
 Quick start with Flask.
 
 * `Flask-Bootstrap <http://github.com/mbr/flask-bootstrap>`_ (markup);
@@ -17,12 +20,18 @@ Quick start with Flask.
 * Usefull makefile shortcuts (make run, make db and etc);
 
 
+Requirements:
+------------
+
+* Python 2.7+ (importlib)
+
+
 Instalation:
 ------------
 ::
 
-    git clone https://github.com/klen/flask-template.git
-    cd flask-template
+    git clone https://github.com/klen/Flask-Foundation.git
+    cd Flask-Foundation
     make db
 
 
