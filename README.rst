@@ -22,7 +22,8 @@ Quick start with Flask.
 Requirements:
 ------------
 
-* Python 2.7+ (importlib)
+* Python 2.6 (importlib)
+* Python 2.7
 
 
 Instalation:
