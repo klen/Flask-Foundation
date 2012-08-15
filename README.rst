@@ -1,7 +1,6 @@
 Flask Template Project
 ======================
 
-.. image:: https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=master
 .. image:: https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=develop
 
 Quick start with Flask.
