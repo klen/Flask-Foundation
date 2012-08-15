@@ -18,7 +18,7 @@ Flask-Foundation
 * Included user authentication system;
 * Usefull makefile shortcuts (make run, make db and etc);
 
-![preview](preview.png)
+![preview](https://raw.github.com/klen/Flask-Foundation/develop/preview.png)
 
 
 Requirements:
