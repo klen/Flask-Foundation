@@ -33,7 +33,7 @@ class FlaskAdmin(Admin):
         from ..loader import loader
         loader.load_submod('admin')
 
-    def add_model(self, model, view=None, role='admin', **kwargs):
+    def add_model(self, model, view=None, **kwargs):
         view = view or AuthModelView
         self.add_view(view(model, db.session))
 

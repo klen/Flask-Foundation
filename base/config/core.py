@@ -16,3 +16,4 @@ BABEL_DEFAULT_LOCALE = 'en'
 
 # Auth
 AUTH_USER_MIXINS = []
+AUTH_LOGIN_VIEW = 'core.index'

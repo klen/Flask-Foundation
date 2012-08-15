@@ -4,8 +4,8 @@
 def register_app(app):
     " Configure application. "
 
-    from .views import urls
-    app.register_blueprint(urls)
+    from .views import core
+    app.register_blueprint(core)
 
     from .ext import admin
     admin.init_app(app)

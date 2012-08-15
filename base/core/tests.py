@@ -4,7 +4,8 @@ from flask_testing import TestCase
 from ..ext import db
 
 
-class BaseCoreTest(TestCase):
+class FlaskTest(TestCase):
+    " Base flask test class. "
 
     def create_app(self):
         return current_app
@@ -15,6 +16,9 @@ class BaseCoreTest(TestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+
+
+class CoreTest(FlaskTest):
 
     def test_home(self):
         response = self.client.get('/')

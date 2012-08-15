@@ -1,12 +1,14 @@
 Flask Template Project
 ======================
 
+.. image:: https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=develop
+
 Quick start with Flask.
 
 * `Flask-Bootstrap <http://github.com/mbr/flask-bootstrap>`_ (markup);
 * `Flask-SQLAlchemy <http://github.com/mitsuhiko/flask-sqlalchemy>`_ (ORM);
 * `Flask-WTF <http://github.com/rduplain/flask-wtf>`_ (forms);
-* `Flask-Evolution <http://pypi.python.org/pypi/Flask-Evolution/0.5>`_ (migration);
+* `Alembic <http://pypi.python.org/pypi/alembic/0.3.5>`_ (migration);
 * `Flask-Babel <http://github.com/mitsuhiko/flask-babel>`_ (i18n);
 * `Flask-Admin <https://github.com/mrjoes/flask-admin/>`_ (administration);
 * `Flask-Script <http://github.com/rduplain/flask-script>`_ (administration);
@@ -17,13 +19,20 @@ Quick start with Flask.
 * Usefull makefile shortcuts (make run, make db and etc);
 
 
+Requirements:
+------------
+
+* Python 2.6 (importlib, unittest2)
+* Python 2.7
+
+
 Instalation:
 ------------
 ::
 
-    git clone https://github.com/klen/flask-template.git
-    cd flask-template
-    make migrate
+    git clone https://github.com/klen/Flask-Foundation.git
+    cd Flask-Foundation
+    make db
 
 
 Usage:

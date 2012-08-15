@@ -1,20 +1,8 @@
-from flask import current_app
-from flask_testing import TestCase
-
+from ..core.tests import FlaskTest
 from ..ext import db
 
 
-class BaseCoreTest(TestCase):
-
-    def create_app(self):
-        return current_app
-
-    def setUp(self):
-        db.create_all()
-
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
+class AuthTest(FlaskTest):
 
     def test_model_mixin(self):
         from base.auth.models import User

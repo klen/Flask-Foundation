@@ -20,14 +20,18 @@ def make_shell_context():
 def migrate():
     " Migration utils. "
     from alembic.config import main
-    main(ARGV)
+    main(filter(lambda a: a != '-c' and not a.startswith('base.config.'), ARGV))
 
 
 @manager.command
 def test():
     " Run tests. "
-    from unittest.loader import defaultTestLoader
-    from unittest.runner import TextTestRunner
+    try:
+        from unittest2.loader import defaultTestLoader
+        from unittest2.runner import TextTestRunner
+    except ImportError:
+        from unittest.loader import defaultTestLoader
+        from unittest.runner import TextTestRunner
 
     suites = [defaultTestLoader.loadTestsFromModule(mod) for mod in loader.load_submod('tests')]
     suite = defaultTestLoader.suiteClass(suites)
@@ -45,4 +49,4 @@ if __name__ == '__main__':
 
     manager.run()
 
-# pymode:lint_ignore=F0401
+# pymode:lint_ignore=F0401,W801
