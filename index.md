@@ -7,9 +7,9 @@ description: Quick start with Flask.
 Flask-Foundation
 ================
 
- [![Build Status](https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=master)](http://travis-ci.org/klen/Flask-Foundation)
+[![Build Status](https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=master)](http://travis-ci.org/klen/Flask-Foundation)
 
-Quick start with Flask.
+> Quick start with Flask.
 
 * [Flask-Bootstrap](http://github.com/mbr/flask-bootstrap) (markup);
 * [Flask-SQLAlchemy](http://github.com/mitsuhiko/flask-sqlalchemy) (ORM);
@@ -24,6 +24,8 @@ Quick start with Flask.
 * Included user authentication system;
 * Usefull makefile shortcuts (make run, make db and etc);
 
+![preview](https://raw.github.com/klen/Flask-Foundation/develop/preview.png)
+
 
 Requirements:
 ------------
@@ -35,9 +37,9 @@ Requirements:
 Instalation:
 ------------
 
-    git clone https://github.com/klen/Flask-Foundation.git
-    cd Flask-Foundation
-    make db
+    $ git clone https://github.com/klen/Flask-Foundation.git
+    $ cd Flask-Foundation
+    $ make db
 
 
 Usage:

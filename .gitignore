@@ -3,3 +3,4 @@
 .ropeproject
 .tags
 .vimrc
+*.pyc
