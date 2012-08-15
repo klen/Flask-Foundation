@@ -7,7 +7,7 @@ description: Quick start with Flask.
 Flask Template Project
 ======================
 
-!(https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=develop)
+![travis-ci](https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=develop)
 
 Quick start with Flask.
 
