@@ -1,5 +1,5 @@
-Flask Template Project
-======================
+Flask-Foundation
+================
 
 .. image:: https://secure.travis-ci.org/klen/Flask-Foundation.png?branch=develop
 
