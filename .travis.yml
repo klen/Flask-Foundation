@@ -11,6 +11,7 @@ branches:
 
 install: 
     - "if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then pip install importlib; fi"
+    - "if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then pip install unittest2; fi"
     - pip install -IM -r requirements.txt
 
 script: python manage.py test -c base.config.test
