@@ -20,9 +20,9 @@ class Create_user(Command):
 
         password = password or prompt_pass("Set password")
         user = User(username=username,
-                        email=email,
-                        pw_hash=password,
-                        active=active)
+                    email=email,
+                    pw_hash=password,
+                    active=active)
 
         db.session.add(user)
         db.session.commit()
@@ -70,7 +70,8 @@ class Add_role(Command):
             u.roles.append(r)
             db.session.add(u)
             db.session.commit()
-            print "Role '%s' added to user '%s' successfully" % (role, username)
+            print "Role '%s' added to user '%s' successfully" % (
+                role, username)
 manager.add_command('add_role', Add_role())
 
 
@@ -92,7 +93,8 @@ class Remove_role(Command):
             u.roles.remove(r)
             db.session.add(u)
             db.session.commit()
-        print "Role '%s' removed from user '%s' successfully" % (role, username)
+        print "Role '%s' removed from user '%s' successfully" % (
+            role, username)
 
 manager.add_command('remove_role', Add_role())
 

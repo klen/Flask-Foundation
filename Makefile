@@ -26,8 +26,12 @@ run: .env/ manage.py
 db: .env/ manage.py
 	$(PYTHON) manage.py migrate upgrade head -c $(CONFIG)
 
+.PHONY: audit
+audit:
+	pylama base -i E501
+
 .PHONY: test
-test: .env/ manage.py
+test: .env/ manage.py audit
 	$(PYTHON) manage.py test -c base.config.test
 
 .PHONY: clean

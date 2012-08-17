@@ -29,3 +29,4 @@ OAUTH_TWITTER = dict(
 )
 
 # pymode:lint_ignore=W0614,W404
+# flake8: noqa

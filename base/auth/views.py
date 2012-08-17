@@ -7,7 +7,8 @@ from .manager import UserManager
 from .models import User
 
 
-users = UserManager('users', __name__, url_prefix='/users', template_folder='templates')
+users = UserManager(
+    'users', __name__, url_prefix='/users', template_folder='templates')
 
 
 @users.route('/profile/')
@@ -47,9 +48,9 @@ def register():
     if form.validate_on_submit():
         # create an user instance not yet stored in the database
         user = User(
-                username=form.username.data,
-                email=form.email.data,
-                pw_hash=form.password.data)
+            username=form.username.data,
+            email=form.email.data,
+            pw_hash=form.password.data)
 
         # Insert the record in our database and commit it
         db.session.add(user)
