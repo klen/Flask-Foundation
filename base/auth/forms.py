@@ -5,18 +5,18 @@ from flask_wtf import Form, TextField, PasswordField, Required, Email, EqualTo, 
 
 class EmailFormMixin():
     email = TextField(_('Email address'),
-        validators=[Required(message=_("Email not provided")),
-                    Email(message=_("Invalid email address"))])
+                      validators=[Required(message=_("Email not provided")),
+                                  Email(message=_("Invalid email address"))])
 
 
 class PasswordFormMixin():
     password = PasswordField(_("Password"),
-        validators=[Required(message=_("Password not provided"))])
+                             validators=[Required(message=_("Password not provided"))])
 
 
 class PasswordConfirmFormMixin():
     password_confirm = PasswordField(_("Retype Password"),
-        validators=[EqualTo('password', message=_("Passwords do not match"))])
+                                     validators=[EqualTo('password', message=_("Passwords do not match"))])
 
 
 class LoginForm(Form, EmailFormMixin, PasswordFormMixin):

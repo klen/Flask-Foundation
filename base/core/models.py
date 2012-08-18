@@ -33,8 +33,10 @@ class TimestampMixin(object):
     UPDATE. UTC time is used in both cases.
     """
 
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    updated_at = db.Column(db.DateTime, onupdate=datetime.utcnow, default=datetime.utcnow)
+    created_at = db.Column(
+        db.DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = db.Column(
+        db.DateTime, onupdate=datetime.utcnow, default=datetime.utcnow)
 
 
 class BaseMixin(UpdateMixin, TimestampMixin):
@@ -92,8 +94,8 @@ class BaseMixin(UpdateMixin, TimestampMixin):
         """
         mapper = object_mapper(self)
         return dict([(p.key, self.__getattribute__(p.key)) for
-            p in mapper.iterate_properties if
-            not self.__getattribute__(p.key) is None])
+                     p in mapper.iterate_properties if
+                     not self.__getattribute__(p.key) is None])
 
     @property
     def appstruct(self):
