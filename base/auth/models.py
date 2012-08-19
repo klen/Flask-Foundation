@@ -56,7 +56,7 @@ class User(db.Model, UserMixin, BaseMixin):
     __tablename__ = 'users_user'
     __metaclass__ = UserMixinMeta
 
-    username = db.Column(db.String(50), unique=True)
+    username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(120))
     active = db.Column(db.Boolean, default=True)
     _pw_hash = db.Column(db.String(199), nullable=False)
