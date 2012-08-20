@@ -5,6 +5,7 @@ from flaskext.cache import Cache
 from flaskext.mail import Mail
 from flaskext.script import Manager
 from flask_collect import Collect
+from flask_debugtoolbar import DebugToolbarExtension
 
 from .app import create_app
 
@@ -28,6 +29,8 @@ def config_extensions(app):
     db.init_app(app)
     main.init_app(app)
     collect.init_app(app)
+
+    DebugToolbarExtension(app)
 
     config_babel(app)
 
