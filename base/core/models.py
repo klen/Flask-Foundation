@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from flask_sqlalchemy import models_committed
+from sqlalchemy import event
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import object_mapper
 from sqlalchemy.orm.session import object_session
@@ -109,8 +109,8 @@ class Alembic(db.Model):
     version_num = db.Column(db.String(32), nullable=False, primary_key=True)
 
 
-def after_change(sender, changes):
-    for instance, op in changes:
-        if hasattr(instance, 'after_change'):
-            instance.after_change(op)
-models_committed.connect(after_change)
+def after_signal(session, *args):
+    map(lambda o: hasattr(o, 'after_new') and o.after_new(), session.new)
+    map(lambda o: hasattr(o, 'after_delete') and o.after_delete(), session.deleted)
+
+event.listen(db.session.__class__, 'after_flush', after_signal)
