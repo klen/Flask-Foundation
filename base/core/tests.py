@@ -34,3 +34,13 @@ class CoreTest(FlaskTest):
         cache.set('key', 'value')
         testkey = cache.get('key')
         self.assertEqual(testkey, 'value')
+
+    def test_after_change(self):
+        from .models import Alembic
+        from mock import Mock
+        Alembic.after_change = Mock()
+        a = Alembic()
+        a.version_num = '345'
+        db.session.add(a)
+        db.session.commit()
+        self.assertEqual(Alembic.after_change.call_args[0][0], 'insert')
