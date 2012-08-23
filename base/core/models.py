@@ -109,8 +109,8 @@ class Alembic(db.Model):
     version_num = db.Column(db.String(32), nullable=False, primary_key=True)
 
 
-def after_signal(session, *args):
-    map(lambda o: hasattr(o, 'after_new') and o.after_new(), session.new)
-    map(lambda o: hasattr(o, 'after_delete') and o.after_delete(), session.deleted)
+def before_signal(session, *args):
+    map(lambda o: hasattr(o, 'before_new') and o.before_new(), session.new)
+    map(lambda o: hasattr(o, 'before_delete') and o.before_delete(), session.deleted)
 
-event.listen(db.session.__class__, 'after_flush', after_signal)
+event.listen(db.session.__class__, 'before_flush', before_signal)
