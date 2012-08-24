@@ -12,15 +12,27 @@ loader.load_submod('script')
 @manager.shell
 def make_shell_context():
     " Update shell. "
+
     from flask import current_app
     return dict(app=current_app, db=db)
 
 
 @manager.command
 def migrate():
-    " Migration utils. "
+    " Alembic migration utils. "
+
+    from flask import current_app
     from alembic.config import main
-    main(filter(lambda a: a != '-c' and not a.startswith('base.config.'), ARGV))
+
+    global ARGV
+
+    config = 'production.ini'
+    if current_app.debug:
+        config = 'develop.ini'
+
+    ARGV = ['-c', 'migrate/%s' % config] + ARGV
+
+    main(ARGV)
 
 
 @manager.command
@@ -43,9 +55,9 @@ ARGV = []
 if __name__ == '__main__':
     argv = sys.argv[1:]
     if argv and argv[0] == 'migrate':
-        ARGV = list(argv[1:])
-        sys.argv[0] += ' migrate'
-        sys.argv = sys.argv[:2]
+        ARGV = filter(lambda a: not a in ('-c', 'migrate') and not a.startswith('base.config.'), argv)
+        argv = filter(lambda a: not a in ARGV, argv)
+        sys.argv = [sys.argv[0]] + argv
 
     manager.run()
 
