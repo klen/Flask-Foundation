@@ -20,7 +20,7 @@ class UserManager(Blueprint):
         if not self._login_manager or self.app != app:
             self._login_manager = LoginManager()
             self._login_manager.user_callback = self.user_loader
-            self._login_manager.setup_app(app)
+            self._login_manager.init_app(app)
             self._login_manager.login_view = app.config.get('AUTH_LOGIN_VIEW', 'code.index')
             self._login_manager.login_message = u'You need to be signed in for this page.'
 

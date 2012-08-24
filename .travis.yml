@@ -15,4 +15,6 @@ install:
     - pip install -IM pylama
     - pip install -IM -r requirements.txt
 
-script: make test
+script:
+    - make audit
+    - make test

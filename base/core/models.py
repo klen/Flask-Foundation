@@ -1,8 +1,10 @@
 from datetime import datetime
 
+from sqlalchemy import event
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import object_mapper
 from sqlalchemy.orm.session import object_session
+
 from ..ext import db
 
 
@@ -105,3 +107,10 @@ class BaseMixin(UpdateMixin, TimestampMixin):
 class Alembic(db.Model):
     __tablename__ = 'alembic_version'
     version_num = db.Column(db.String(32), nullable=False, primary_key=True)
+
+
+def before_signal(session, *args):
+    map(lambda o: hasattr(o, 'before_new') and o.before_new(), session.new)
+    map(lambda o: hasattr(o, 'before_delete') and o.before_delete(), session.deleted)
+
+event.listen(db.session.__class__, 'before_flush', before_signal)

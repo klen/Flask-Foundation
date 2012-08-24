@@ -31,7 +31,7 @@ audit:
 	pylama base -i E501
 
 .PHONY: test
-test: .env/ manage.py audit
+test: .env/ manage.py
 	$(PYTHON) manage.py test -c base.config.test
 
 .PHONY: clean

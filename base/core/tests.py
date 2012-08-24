@@ -34,3 +34,21 @@ class CoreTest(FlaskTest):
         cache.set('key', 'value')
         testkey = cache.get('key')
         self.assertEqual(testkey, 'value')
+
+    def test_after_change(self):
+        from .models import Alembic
+        from mock import Mock
+        Alembic.before_new = Mock()
+        a = Alembic()
+        a.version_num = '345'
+        db.session.add(a)
+        db.session.commit()
+        self.assertEqual(Alembic.before_new.call_count, 1)
+
+    def test_mail_handler(self):
+        from ..ext import mail
+        with mail.record_messages() as outbox:
+            self.app.logger.error('Attention!')
+            self.assertTrue(outbox)
+            msg = outbox[0]
+            self.assertEqual(msg.subject, 'APP ERROR: http://localhost/')

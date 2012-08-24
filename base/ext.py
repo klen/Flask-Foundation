@@ -13,7 +13,7 @@ from .app import create_app
 babel = Babel()
 cache = Cache()
 db = SQLAlchemy()
-main = Mail()
+mail = Mail()
 
 manager = Manager(create_app)
 manager.add_option("-c", "--config", dest="config", required=False)
@@ -27,7 +27,7 @@ def config_extensions(app):
 
     cache.init_app(app)
     db.init_app(app)
-    main.init_app(app)
+    mail.init_app(app)
     collect.init_app(app)
 
     DebugToolbarExtension(app)
