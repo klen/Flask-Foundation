@@ -1,9 +1,9 @@
 " base.core "
-
-from ..ext import mail
+from flask import request
 from flaskext.mail import Message
 from logging import Handler, ERROR
-from flask import request
+
+from ..ext import mail
 
 
 def register_app(app):
@@ -22,8 +22,9 @@ def register_app(app):
     from flask import render_template
     app.errorhandler(404)(lambda e: (render_template('core/404.html'), 404))
 
-    mailhandler = FlaskMailHandler(ERROR)
-    app.logger.addHandler(mailhandler)
+    if not app.debug:
+        mailhandler = FlaskMailHandler(ERROR)
+        app.logger.addHandler(mailhandler)
 
 register_app.priority = 100.0
 
