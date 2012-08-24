@@ -1,5 +1,10 @@
 " base.core "
 
+from ..ext import mail
+from flaskext.mail import Message
+from logging import Handler, ERROR
+from flask import request
+
 
 def register_app(app):
     " Configure application. "
@@ -17,4 +22,18 @@ def register_app(app):
     from flask import render_template
     app.errorhandler(404)(lambda e: (render_template('core/404.html'), 404))
 
+    mailhandler = FlaskMailHandler(ERROR)
+    app.logger.addHandler(mailhandler)
+
 register_app.priority = 100.0
+
+
+class FlaskMailHandler(Handler):
+
+    def emit(self, record):
+        sbj = "APP ERROR: %s%s" % (request.host_url.rstrip('/'), request.path)
+        msg = Message(sbj, body=self.format(record), recipients=mail.app.config.get('ADMINS', []))
+        mail.send(msg)
+
+
+# pymode:lint_ignore=F0401
