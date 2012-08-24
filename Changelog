@@ -2,6 +2,7 @@
 
 	* Add 'before_new', 'before_delete' model methods support
 	* Add FlaskMail log handler for production
+	* Load migrations by app config
 
 2012-08-19  klen
 
