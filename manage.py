@@ -23,14 +23,13 @@ def migrate():
 
     from flask import current_app
     from alembic.config import main
+    from os import path as op
 
     global ARGV
 
-    config = 'production.ini'
-    if current_app.debug:
-        config = 'develop.ini'
+    config = op.join(op.dirname(__file__), 'migrate', 'develop.ini' if current_app.debug else 'production.ini')
 
-    ARGV = ['-c', 'migrate/%s' % config] + ARGV
+    ARGV = ['-c', config] + ARGV
 
     main(ARGV)
 
@@ -61,4 +60,5 @@ if __name__ == '__main__':
 
     manager.run()
 
-# pymode:lint_ignore=F0401,W801
+
+# pymode:lint_ignore=F0401,W801,W0603
