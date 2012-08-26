@@ -4,6 +4,37 @@ from flask_testing import TestCase
 from ..ext import db
 
 
+class QueriesContext():
+
+    def __init__(self, num, testcase):
+
+        self.num = num
+        self.echo = None
+        self.testcase = testcase
+        self.start = 0
+
+    def __enter__(self):
+        from flask_sqlalchemy import get_debug_queries
+
+        self.start = len(get_debug_queries())
+        self.echo = db.engine.echo
+        db.engine.echo = True
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        db.engine.echo = self.echo
+        if exc_type is not None:
+            return
+
+        from flask_sqlalchemy import get_debug_queries
+
+        executed = len(get_debug_queries()) - self.start
+        self.testcase.assertEqual(
+            executed, self.num, "%d queries executed, %d expected" % (
+                executed, self.num
+            )
+        )
+
+
 class FlaskTest(TestCase):
     " Base flask test class. "
 
@@ -17,6 +48,16 @@ class FlaskTest(TestCase):
         db.session.remove()
         db.drop_all()
 
+    def assertNumQueries(self, num, func=None):
+        " Check number of queries by flask_sqlalchemy. "
+
+        context = QueriesContext(num, self)
+        if func is None:
+            return context
+
+        with context:
+            func()
+
 
 class CoreTest(FlaskTest):
 
@@ -25,7 +66,8 @@ class CoreTest(FlaskTest):
         self.assert200(response)
 
     def test_admin(self):
-        response = self.client.get('/admin/')
+        with self.assertNumQueries(0):
+            response = self.client.get('/admin/')
         self.assert403(response)
 
     def test_cache(self):
