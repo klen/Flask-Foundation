@@ -1,3 +1,7 @@
+2012-08-26  klen
+
+	* base.core.tests.FlaskTestCase haved assertNumQueries method 
+
 2012-08-24  klen
 
 	* Add 'before_new', 'before_delete' model methods support
