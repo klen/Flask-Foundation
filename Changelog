@@ -1,3 +1,7 @@
+2012-08-28  klen
+
+	* Update Flask-Admin to version 1.0.2
+
 2012-08-26  klen
 
 	* base.core.tests.FlaskTestCase haved assertNumQueries method 
