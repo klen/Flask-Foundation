@@ -1,3 +1,7 @@
+2012-08-29  klen
+
+	* Flask-Cache>=0.7.1
+
 2012-08-28  klen
 
 	* Update Flask-Admin to version 1.0.2
