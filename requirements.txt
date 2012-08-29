@@ -1,10 +1,8 @@
-# Fix for Flask-Cache==0.7.0
-Flask-Cache==0.6.0
-
 # Flask template
 # --------------
 Flask>=0.9
 Flask-SQLAlchemy>=0.16
+Flask-Cache>=0.7.1
 Flask-Script>=0.3.3
 Flask-Admin>=1.0.2
 Flask-Babel>=0.8
