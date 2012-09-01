@@ -1,6 +1,6 @@
 " base.core "
 from flask import request
-from flaskext.mail import Message
+from flask_mail import Message
 from logging import Handler, ERROR
 
 from ..ext import mail
