@@ -1,7 +1,5 @@
 """Init auth models
 
-Revision ID: 13f50baa651
-Revises: None
 Create Date: 2012-08-10 17:29:18.996057
 
 """
@@ -13,7 +11,7 @@ import sqlalchemy as db
 from alembic import op
 
 
-revision = '13f50baa651'
+revision = '00000001'
 down_revision = None
 
 
@@ -46,9 +44,9 @@ def upgrade():
     )
 
     op.create_table(
-            'users_userroles',
-            db.Column('user_id', db.Integer, db.ForeignKey('users_user.id')),
-            db.Column('role_id', db.Integer, db.ForeignKey('users_role.id')),
+        'users_userroles',
+        db.Column('user_id', db.Integer, db.ForeignKey('users_user.id')),
+        db.Column('role_id', db.Integer, db.ForeignKey('users_role.id')),
     )
 
 
