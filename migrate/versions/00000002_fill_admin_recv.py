@@ -1,7 +1,5 @@
 """Fill admin recv
 
-Revision ID: 3c6bb84e555a
-Revises: 13f50baa651
 Create Date: 2012-08-11 17:28:35.464047
 
 """
@@ -14,8 +12,8 @@ from base.core.models import BaseMixin
 from base.ext import db
 
 
-revision = '3c6bb84e555a'
-down_revision = '13f50baa651'
+revision = '00000002'
+down_revision = '00000001'
 
 db.metadata.clear()
 
