@@ -1,4 +1,4 @@
-from flaskext.script import Command, Option, prompt_pass
+from flask_script import Command, Option, prompt_pass
 
 from ..ext import manager
 

@@ -3,7 +3,7 @@
 Flask>=0.9
 Flask-SQLAlchemy>=0.16
 Flask-Cache>=0.7.1
-Flask-Script>=0.3.3
+Flask-Script>=0.4.0
 Flask-Admin>=1.0.2
 Flask-Babel>=0.8
 Flask-Bootstrap>=2.1.0-1
