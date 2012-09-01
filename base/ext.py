@@ -1,11 +1,11 @@
 from flask import request
 from flask_collect import Collect
 from flask_debugtoolbar import DebugToolbarExtension
+from flask_mail import Mail
 from flask_script import Manager
 from flask_sqlalchemy import SQLAlchemy
 from flaskext.babel import Babel
 from flaskext.cache import Cache
-from flaskext.mail import Mail
 
 from .app import create_app
 
