@@ -35,8 +35,13 @@ def migrate():
 
 
 @manager.command
-def test():
-    " Run tests. "
+def test(testcase=''):
+    """ Run unittests.
+
+        :param testmod: path to custom module
+
+    """
+
     try:
         from unittest2.loader import defaultTestLoader
         from unittest2.runner import TextTestRunner
@@ -44,8 +49,20 @@ def test():
         from unittest.loader import defaultTestLoader
         from unittest.runner import TextTestRunner
 
-    suites = [defaultTestLoader.loadTestsFromModule(mod) for mod in loader.load_submod('tests')]
-    suite = defaultTestLoader.suiteClass(suites)
+    if testcase:
+        mod, case = testcase.rsplit('.', 1)
+        mod = loader.import_module(mod)
+        if not mod or not hasattr(mod, case):
+            sys.stdout.write("Load case error: %s\n" % testcase)
+            sys.exit(1)
+
+        testcase = getattr(mod, case)
+        suite = defaultTestLoader.loadTestsFromTestCase(testcase)
+    else:
+        cases = loader.load_submod('tests')
+        suites = [defaultTestLoader.loadTestsFromModule(mod) for mod in cases]
+        suite = defaultTestLoader.suiteClass(suites)
+
     TextTestRunner().run(suite)
 
 

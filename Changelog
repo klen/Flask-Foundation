@@ -1,3 +1,8 @@
+2012-09-03  klen
+
+	* Added ability to run custom TestCase
+	  ./manage.py test -t base.core.tests.CoreTest -c base.config.develop
+
 2012-09-01  klen
 
 	* Flask-Script>=0.4.0

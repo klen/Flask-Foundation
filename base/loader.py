@@ -19,14 +19,10 @@ class AppLoader(ModuleLoader):
             self._meta(mod)(app)
 
     def load_submod(self, submod):
-        submods = []
-        for mod in self:
-            try:
-                submods.append(
-                    import_module("%s.%s" % (mod.__name__, submod)))
-            except ImportError:
-                continue
-        return submods
+        return filter(
+            lambda m: m,
+            [self.import_module("%s.%s" % (mod.__name__, submod)) for mod in self]
+        )
 
     def __iter__(self):
         return iter(self._cache)
@@ -34,6 +30,13 @@ class AppLoader(ModuleLoader):
     @staticmethod
     def _meta(mod):
         return getattr(mod, 'register_app', None)
+
+    @staticmethod
+    def import_module(path):
+        try:
+            return import_module(path)
+        except ImportError:
+            return None
 
 
 loader = AppLoader()
