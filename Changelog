@@ -1,3 +1,8 @@
+2012-09-10  klen
+
+	* Flask-Principal>=0.3.3
+	* Flask-Mail>=0.7.1
+
 2012-09-03  klen
 
 	* Added ability to run custom TestCase
