@@ -5,16 +5,15 @@ from os import path as op
 
 
 SECRET_KEY = 'SecretKeyForSessionSigning'
-
 ADMINS = frozenset([MAIL_USERNAME])
+
+# flask.ext.collect
+# -----------------
 COLLECT_STATIC_ROOT = op.join(op.dirname(ROOTDIR), 'static')
 
+# auth.oauth
+# ----------
 OAUTH_TWITTER = dict(
-    base_url='http://api.twitter.com/1/',
-    request_token_url='http://api.twitter.com/oauth/request_token',
-    access_token_url='http://api.twitter.com/oauth/access_token',
-    authorize_url='http://api.twitter.com/oauth/authorize',
-
     # flask-base-template app
     consumer_key='ydcXz2pWyePfc3MX3nxJw',
     consumer_secret='Pt1t2PjzKu8vsX5ixbFKu5gNEAekYrbpJrlsQMIwquc'
