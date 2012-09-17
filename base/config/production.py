@@ -19,5 +19,10 @@ OAUTH_TWITTER = dict(
     consumer_secret='Pt1t2PjzKu8vsX5ixbFKu5gNEAekYrbpJrlsQMIwquc'
 )
 
+# dealer
+DEALER_PARAMS = dict(
+    backends=('git', 'mercurial', 'simple', 'null')
+)
+
 
 # pymode:lint_ignore=W0614,W404

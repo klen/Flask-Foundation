@@ -1,5 +1,10 @@
 {% extends "bootstrap_responsive.html" %}
 
+{% block style %}
+    <link href="{{'css/bootstrap.css'|bootstrap_find_resource}}?{{REVISION}}" rel="stylesheet">
+    <link href="{{'css/bootstrap-responsive.css'|bootstrap_find_resource}}?{{REVISION}}" rel="stylesheet">
+{%- endblock %}
+
 {% block body_content %}
 
     {# Navbar #}
