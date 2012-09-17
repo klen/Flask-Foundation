@@ -6,6 +6,7 @@ from flask_script import Manager
 from flask_sqlalchemy import SQLAlchemy
 from flaskext.babel import Babel
 from flaskext.cache import Cache
+from dealer.contrib.flask import Dealer
 
 from .app import create_app
 
@@ -13,6 +14,7 @@ from .app import create_app
 babel = Babel()
 cache = Cache()
 db = SQLAlchemy()
+dealer = Dealer()
 mail = Mail()
 
 manager = Manager(create_app)
@@ -26,9 +28,10 @@ def config_extensions(app):
     " Init application with extensions. "
 
     cache.init_app(app)
-    db.init_app(app)
-    mail.init_app(app)
     collect.init_app(app)
+    db.init_app(app)
+    dealer.init_app(app)
+    mail.init_app(app)
 
     DebugToolbarExtension(app)
 

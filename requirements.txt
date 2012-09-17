@@ -1,5 +1,7 @@
 # Flask template
 # --------------
+alembic>=0.3.6
+dealer>=0.1.8
 Flask>=0.9
 Flask-Admin>=1.0.2
 Flask-Babel>=0.8
@@ -14,7 +16,5 @@ Flask-Rauth>=0.2.2
 Flask-Script>=0.4.0
 Flask-SQLAlchemy>=0.16
 Flask-Testing>=0.4
-
-alembic>=0.3.6
 mock>=1.0b1
 straight.plugin>=1.4.0-post-1
