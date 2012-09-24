@@ -42,7 +42,7 @@ audit:
 
 # target: test - Run tests
 .PHONY: test
-test: .env/ manage.py
+test: .env/ manage.py clean
 	$(PYTHON) manage.py test -c base.config.test
 
 

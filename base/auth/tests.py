@@ -42,7 +42,7 @@ class AuthTest(FlaskTest):
 
     def test_manager(self):
         from .models import Role, User
-        from .script import create_role, create_user, add_role
+        from .manage import create_role, create_user, add_role
 
         create_role('test')
         role = Role.query.filter(Role.name == 'test').first()
