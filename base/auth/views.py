@@ -3,8 +3,8 @@ from flaskext.babel import lazy_gettext as _
 
 from ..ext import db
 from .forms import RegisterForm, LoginForm
-from .manager import UserManager
 from .models import User
+from .utils import UserManager
 
 
 users = UserManager(

@@ -6,7 +6,7 @@ import sys
 
 
 # Load app scripts
-loader.register(manager, submodule='script')
+loader.register(manager, submodule='manage')
 
 
 @manager.shell
