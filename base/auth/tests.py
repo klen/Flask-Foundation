@@ -5,11 +5,11 @@ from ..ext import db
 class AuthTest(FlaskTest):
 
     def test_model_mixin(self):
-        from base.auth.models import User
+        from .models import User
         self.assertTrue(User.do_true())
 
     def test_users(self):
-        from base.auth.models import User
+        from .models import User
 
         response = self.client.post('/users/login/', data=dict())
         self.assertRedirects(response, '/')
@@ -41,17 +41,17 @@ class AuthTest(FlaskTest):
         self.assertEqual(user.email, 'test2@test.com')
 
     def test_manager(self):
-        from base.auth.models import Role, User
-        from base.auth.script import Create_role, Create_user, Add_role
+        from .models import Role, User
+        from .script import create_role, create_user, add_role
 
-        Create_role.run('test')
+        create_role('test')
         role = Role.query.filter(Role.name == 'test').first()
         self.assertEqual(role.name, 'test')
 
-        Create_user.run('test', 'test@test.com', active=True, password='12345')
+        create_user('test', 'test@test.com', active=True, password='12345')
         user = User.query.filter(User.username == 'test').first()
 
-        Add_role.run('test', 'test')
+        add_role('test', 'test')
         self.assertTrue(role in user.roles)
 
     def test_oauth(self):

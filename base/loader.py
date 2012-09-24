@@ -13,23 +13,35 @@ class AppLoader(ModuleLoader):
         super(AppLoader, self)._fill_cache(namespace)
         self._cache = filter(self._meta, self._cache)
 
-    def register(self, app):
-        for mod in self:
-            app.logger.info("Register mod: %s" % mod.__name__)
-            self._meta(mod)(app)
+    def register(self, *args, **kwargs):
+        " Load and register modules. "
 
-    def load_submod(self, submod):
-        return filter(
-            lambda m: m,
-            [self.import_module("%s.%s" % (mod.__name__, submod)) for mod in self]
-        )
+        result = []
+
+        submodule = kwargs.pop('submodule', None)
+        logger = kwargs.pop('logger', None)
+
+        for mod in self:
+
+            if logger:
+                logger.info("Register module: %s" % mod.__name__)
+
+            if submodule:
+                mod = self.import_module('%s.%s' % (mod.__name__, submodule))
+
+            meta = self._meta(mod)
+            meta and meta(*args, **kwargs)
+
+            result.append(mod)
+
+        return result
 
     def __iter__(self):
         return iter(self._cache)
 
     @staticmethod
     def _meta(mod):
-        return getattr(mod, 'register_app', None)
+        return getattr(mod, 'loader_meta', None)
 
     @staticmethod
     def import_module(path):

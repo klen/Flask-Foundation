@@ -1,7 +1,7 @@
 " base.auth "
 
 
-def register_app(app):
+def loader_meta(app):
     " Configure application. "
 
     from .views import users
@@ -10,4 +10,4 @@ def register_app(app):
     from .oauth import config_rauth
     config_rauth(app)
 
-register_app.priority = 1.0
+loader_meta.priority = 1.0

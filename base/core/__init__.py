@@ -6,7 +6,7 @@ from logging import Handler, ERROR
 from ..ext import mail
 
 
-def register_app(app):
+def loader_meta(app=None):
     " Configure application. "
 
     from .views import core
@@ -26,7 +26,7 @@ def register_app(app):
         mailhandler = FlaskMailHandler(ERROR)
         app.logger.addHandler(mailhandler)
 
-register_app.priority = 100.0
+loader_meta.priority = 100.0
 
 
 class FlaskMailHandler(Handler):

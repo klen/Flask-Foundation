@@ -6,7 +6,7 @@ import sys
 
 
 # Load app scripts
-loader.load_submod('script')
+loader.register(manager, submodule='manage')
 
 
 @manager.shell
@@ -18,7 +18,7 @@ def make_shell_context():
 
 
 @manager.command
-def migrate():
+def alembic():
     " Alembic migration utils. "
 
     from flask import current_app
@@ -36,11 +36,7 @@ def migrate():
 
 @manager.command
 def test(testcase=''):
-    """ Run unittests.
-
-        :param testmod: path to custom module
-
-    """
+    " Run unittests. "
 
     try:
         from unittest2.loader import defaultTestLoader
@@ -59,7 +55,7 @@ def test(testcase=''):
         testcase = getattr(mod, case)
         suite = defaultTestLoader.loadTestsFromTestCase(testcase)
     else:
-        cases = loader.load_submod('tests')
+        cases = loader.register(submodule='tests')
         suites = [defaultTestLoader.loadTestsFromModule(mod) for mod in cases]
         suite = defaultTestLoader.suiteClass(suites)
 
@@ -70,10 +66,10 @@ ARGV = []
 
 if __name__ == '__main__':
     argv = sys.argv[1:]
-    if argv and argv[0] == 'migrate':
-        ARGV = filter(lambda a: not a in ('-c', 'migrate') and not a.startswith('base.config.'), argv)
+    if argv and argv[0] == 'alembic':
+        ARGV = filter(lambda a: not a in ('-c', 'alembic') and not a.startswith('base.config.'), argv)
         argv = filter(lambda a: not a in ARGV, argv)
-        sys.argv = [sys.argv[0]] + argv
+        sys.argv = [sys.argv[0] + ' alembic'] + argv
 
     manager.run()
 
