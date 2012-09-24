@@ -31,7 +31,7 @@ class FlaskAdmin(Admin):
         super(FlaskAdmin, self).init_app(app)
 
         from ..loader import loader
-        loader.load_submod('admin')
+        loader.register(submodule='admin')
 
     def add_model(self, model, view=None, **kwargs):
         view = view or AuthModelView
