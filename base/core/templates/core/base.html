@@ -5,6 +5,12 @@
     <link href="{{'css/bootstrap-responsive.css'|bootstrap_find_resource}}?{{REVISION}}" rel="stylesheet">
 {%- endblock %}
 
+{%- block favicons %}
+    <link rel="shortcut icon" href="{{ url_for('core.static', filename='foundation.ico') }}" />
+{%- endblock %}
+
+{% block title %}{{ title or 'Foundation' }}{% endblock %}
+
 {% block body_content %}
 
     {# Navbar #}
