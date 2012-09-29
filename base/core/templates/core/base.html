@@ -3,6 +3,9 @@
 {% block style %}
     <link href="{{'css/bootstrap.css'|bootstrap_find_resource}}?{{REVISION}}" rel="stylesheet">
     <link href="{{'css/bootstrap-responsive.css'|bootstrap_find_resource}}?{{REVISION}}" rel="stylesheet">
+    <style type="text/css" media="screen">
+        body { margin-top: 60px; }
+    </style>
 {%- endblock %}
 
 {%- block favicons %}
@@ -25,9 +28,17 @@
     </div>
 
     {% block footer %}
-        <hr>
-        <footer>
-            <p>&copy; Company 2012</p>
+        <style type="text/css" media="screen">
+            .footer {
+                padding: 70px 0;
+                margin-top: 70px;
+                border-top: 1px solid #E5E5E5;
+                background-color: whiteSmoke; }
+        </style>
+        <footer class="footer">
+            <div class='container'>
+                <p>&copy; Company 2012</p>
+            </div>
         </footer>
     {% endblock %}
 

@@ -5,6 +5,7 @@ from random import choice
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.ext.hybrid import hybrid_property
 from werkzeug import check_password_hash, generate_password_hash
+from datetime import datetime
 
 from ..core.models import BaseMixin
 from ..ext import db
@@ -13,16 +14,16 @@ from ..ext import db
 PSYMBOLS = 'abcdefghijklmnopqrstuvwxyz123456789'
 
 userroles = db.Table(
-    'users_userroles',
-    db.Column('user_id', db.Integer, db.ForeignKey('users_user.id')),
-    db.Column('role_id', db.Integer, db.ForeignKey('users_role.id'))
+    'auth_userroles',
+    db.Column('user_id', db.Integer, db.ForeignKey('auth_user.id')),
+    db.Column('role_id', db.Integer, db.ForeignKey('auth_role.id'))
 )
 
 
 class Role(db.Model, BaseMixin):
     " User roles. "
 
-    __tablename__ = 'users_role'
+    __tablename__ = 'auth_role'
 
     name = db.Column(db.String(19), nullable=False, unique=True)
 
@@ -51,19 +52,18 @@ class UserMixinMeta(_BoundDeclarativeMeta):
 
 
 class User(db.Model, UserMixin, BaseMixin):
-    " Main user model. "
+    """ Main User database model.
 
-    __tablename__ = 'users_user'
+        Extend that uses `AUTH_USER_MIXINS` option.
+    """
+
+    __tablename__ = 'auth_user'
     __metaclass__ = UserMixinMeta
 
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(120))
     active = db.Column(db.Boolean, default=True)
     _pw_hash = db.Column(db.String(199), nullable=False)
-
-    # OAuth creds
-    oauth_token = db.Column(db.String(200))
-    oauth_secret = db.Column(db.String(200))
 
     @declared_attr
     def roles(self):
@@ -102,5 +102,31 @@ class User(db.Model, UserMixin, BaseMixin):
     def __repr__(self):
         return '<User %r>' % (self.username)
 
+
+class Key(db.Model, BaseMixin):
+    """ OAuth keys store.
+    """
+    __tablename__ = 'auth_key'
+    __table_args__ = db.UniqueConstraint('service_alias', 'service_id'),
+
+    service_alias = db.Column(db.String)
+    service_id = db.Column(db.String)
+
+    access_token = db.Column(db.String)
+    secret = db.Column(db.String)
+    expires = db.Column(db.DateTime)
+    refresh_token = db.Column(db.String)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('auth_user.id'))
+    user = db.relationship('User', backref=db.backref('keys', lazy='dynamic'))
+
+    def __unicode__(self):
+        return self.service_alias
+
+    def __repr__(self):
+        return '<Key %s %s>' % (self.service_alias, self.service_id)
+
+    def is_expired(self):
+        return self.expires and self.expires < datetime.now()
 
 # pymode:lint_ignore=E0611,E0202

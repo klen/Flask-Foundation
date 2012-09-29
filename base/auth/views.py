@@ -7,17 +7,17 @@ from .models import User
 from .utils import UserManager
 
 
-users = UserManager(
-    'users', __name__, url_prefix='/users', template_folder='templates')
+auth = UserManager(
+    'auth', __name__, url_prefix='/auth', template_folder='templates')
 
 
-@users.route('/profile/')
-@users.login_required
+@auth.route('/profile/')
+@auth.login_required
 def profile():
-    return render_template("users/profile.html")
+    return render_template("auth/profile.html")
 
 
-@users.route('/login/', methods=['POST'])
+@auth.route('/login/', methods=['POST'])
 def login():
     " View function which handles an authentication request. "
     form = LoginForm(request.form)
@@ -26,22 +26,22 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         # we use werzeug to validate user's password
         if user and user.check_password(form.password.data):
-            users.login(user)
+            auth.login(user)
             flash(_('Welcome %(user)s', user=user.username))
-            return redirect(url_for('users.profile'))
+            return redirect(url_for('auth.profile'))
         flash(_('Wrong email or password'), 'error-message')
-    return redirect(request.referrer or url_for(users._login_manager.login_view))
+    return redirect(request.referrer or url_for(auth._login_manager.login_view))
 
 
-@users.route('/logout/', methods=['GET'])
-@users.login_required
+@auth.route('/logout/', methods=['GET'])
+@auth.login_required
 def logout():
     " View function which handles a logout request. "
-    users.logout()
-    return redirect(request.referrer or url_for(users._login_manager.login_view))
+    auth.logout()
+    return redirect(request.referrer or url_for(auth._login_manager.login_view))
 
 
-@users.route('/register/', methods=['GET', 'POST'])
+@auth.route('/register/', methods=['GET', 'POST'])
 def register():
     " Registration Form. "
     form = RegisterForm(request.form)
@@ -56,13 +56,13 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        users.login(user)
+        auth.login(user)
 
         # flash will display a message to the user
         flash(_('Thanks for registering'))
         # redirect user to the 'home' method of the user module.
-        return redirect(url_for('users.profile'))
-    return render_template("users/register.html", form=form)
+        return redirect(url_for('auth.profile'))
+    return render_template("auth/register.html", form=form)
 
 
 # pymode:lint_ignore=F0401

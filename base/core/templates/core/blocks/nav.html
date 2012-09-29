@@ -18,31 +18,51 @@
                         {% if current_user.permission('admin') %}
                             <li><a href="{{ url_for('admin.index') }}">{{ _('Admin') }}</a></li>
                         {% endif %}
-                        <li><a href="{{ url_for('users.profile') }}">{{ _('Profile') }}</a></li>
-                        <li><a href="{{ url_for('users.logout') }}">{{ _('Logout') }}</a></li>
+                        <li><a href="{{ url_for('auth.profile') }}">{{ _('Profile') }}</a></li>
+                        <li><a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a></li>
                     </ul>
                     </li>
                     {% elif loginform %}
                     {% import "bootstrap_wtf.html" as wtf %}
 
-                    <li>
-                        <a href="{{ url_for('login_twitter') }}">{{ _('twitter') }}</a>
-                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ _('Login') }}<b class="caret"></b></a>
                         <div class="dropdown-menu well">
-                            <form class="form" action="{{ url_for('users.login') }}" method="POST">
-                                {{ loginform.hidden_tag() }}
-                                {{ wtf.form_errors(loginform, False) }}
-                                {{ wtf.horizontal_field(loginform.email) }}
-                                {{ wtf.horizontal_field(loginform.password) }}
-                                {{ wtf.horizontal_field(loginform.remember) }}
-                                <button name="action_save" type="submit" class="btn btn-primary">{{ _('Login') }}</button>
-                            </form>
+                            <div class="row">
+                                <div class='span3'>
+                                    <form method="POST" action="{{ url_for('auth.login') }}" accept-charset="UTF-8">
+                                        {{ loginform.hidden_tag() }}
+                                        {% if loginform.errors %}
+                                            <div class="alert alert-error">
+                                                {{ wtf.form_errors(loginform, False) }}
+                                            </div>      
+                                        {% endif %}
+                                        
+                                        <input class="span3" placeholder="{{ loginform.email.label.text }}" type="text" name="{{ loginform.email.name }}">
+                                        <input class="span3" placeholder="{{ loginform.password.label.text }}" type="password" name="{{ loginform.password.name }}"> 
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="{{ loginform.remember.name }}" value="1">
+                                            {{ loginform.remember.label.text }}
+                                        </label>
+                                        <button class="btn-info btn" type="submit">{{ _('Login') }}</button>      
+                                    </form>    
+                                    <div class="row">
+                                        <div class='span1'>
+                                            <a href="{{ url_for('oauth_twitter_login') }}" style="padding: 0"><img src="http://favicon.yandex.ru/favicon/twitter.com" alt="twitter"/> twitter</a>
+                                        </div>
+                                        <div class='span1'>
+                                            <a href="{{ url_for('oauth_facebook_login') }}" style="padding: 0"><img src="http://favicon.yandex.ru/favicon/facebook.com" alt="facebook"/> facebook</a>
+                                        </div>
+                                        <div class='span1'>
+                                            <a href="{{ url_for('oauth_github_login') }}" style="padding: 0"><img src="http://favicon.yandex.ru/favicon/github.com" alt="github"/> github</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </li>
                     <li>
-                        <a href="{{ url_for('users.register') }}">{{ _('Register') }}</a>
+                        <a href="{{ url_for('auth.register') }}">{{ _('Register') }}</a>
                     </li>
                     {% endif %}
                 </ul>

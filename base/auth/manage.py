@@ -1,3 +1,5 @@
+"""Flask-Script support.
+"""
 from flask_script import prompt_pass, Manager
 
 

@@ -18,7 +18,7 @@ down_revision = None
 def upgrade():
 
     op.create_table(
-        'users_role',
+        'auth_role',
         db.Column('id', db.Integer, primary_key=True),
         db.Column('created_at', db.DateTime,
                   default=datetime.utcnow, nullable=False),
@@ -29,7 +29,7 @@ def upgrade():
     )
 
     op.create_table(
-        'users_user',
+        'auth_user',
         db.Column('id', db.Integer, primary_key=True),
         db.Column('created_at', db.DateTime,
                   default=datetime.utcnow, nullable=False),
@@ -44,13 +44,13 @@ def upgrade():
     )
 
     op.create_table(
-        'users_userroles',
-        db.Column('user_id', db.Integer, db.ForeignKey('users_user.id')),
-        db.Column('role_id', db.Integer, db.ForeignKey('users_role.id')),
+        'auth_userroles',
+        db.Column('user_id', db.Integer, db.ForeignKey('auth_user.id')),
+        db.Column('role_id', db.Integer, db.ForeignKey('auth_role.id')),
     )
 
 
 def downgrade():
-    op.drop_table('users_role')
-    op.drop_table('users_user')
-    op.drop_table('users_userroles')
+    op.drop_table('auth_role')
+    op.drop_table('auth_user')
+    op.drop_table('auth_userroles')

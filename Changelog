@@ -1,3 +1,9 @@
+2012-09-29  klen
+
+	* Flask-Mail 0.7.3
+	* Add Foundation logo and favicon
+	* Refactor OAuth support (Added facebook and Github as examples)
+
 2012-09-25  klen
 
 	* Flask-Script 0.5.0
