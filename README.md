@@ -23,6 +23,11 @@ It includes:
 * Included user authentication system;
 * Usefull makefile shortcuts (make run, make db and etc);
 
+Preview
+-------
+
+Working example: http://foundation.node42.org/
+
 ![preview](https://raw.github.com/klen/Flask-Foundation/develop/preview.png)
 
 
