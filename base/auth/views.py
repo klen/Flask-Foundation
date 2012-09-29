@@ -28,7 +28,8 @@ def login():
         if user and user.check_password(form.password.data):
             auth.login(user)
             flash(_('Welcome %(user)s', user=user.username))
-            return redirect(url_for('auth.profile'))
+            redirect_name = current_app.config.get('AUTH_PROFILE_VIEW', 'auth.profile')
+            return redirect(url_for(redirect_name))
         flash(_('Wrong email or password'), 'error-message')
     return redirect(request.referrer or url_for(auth._login_manager.login_view))
 
