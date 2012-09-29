@@ -1,4 +1,4 @@
-from flask import request, render_template, flash, redirect, url_for
+from flask import request, render_template, flash, redirect, url_for, current_app
 from flaskext.babel import lazy_gettext as _
 
 from ..ext import db
@@ -60,8 +60,11 @@ def register():
 
         # flash will display a message to the user
         flash(_('Thanks for registering'))
+
         # redirect user to the 'home' method of the user module.
-        return redirect(url_for('auth.profile'))
+        redirect_name = current_app.config.get('AUTH_PROFILE_VIEW', 'auth.profile')
+        return redirect(url_for(redirect_name))
+
     return render_template("auth/register.html", form=form)
 
 
