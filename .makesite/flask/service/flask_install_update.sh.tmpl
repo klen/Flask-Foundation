@@ -5,8 +5,9 @@ SOURCEDIR={{ source_dir }}
 USER={{ site_user }}
 GROUP={{ site_group }}
 DEPLOYDIR={{ deploy_dir }}
+CONFIG=base.config.{{ mode }}
 
 
-sudo $PYTHON $SOURCEDIR/manage.py collect
-sudo $PYTHON $SOURCEDIR/manage.py alembic upgrade head
+sudo $PYTHON $SOURCEDIR/manage.py collect -c $CONFIG
+sudo $PYTHON $SOURCEDIR/manage.py alembic upgrade head -c $CONFIG
 sudo chown $USER:$GROUP -R $DEPLOYDIR
