@@ -8,5 +8,5 @@ DEPLOYDIR={{ deploy_dir }}
 
 
 sudo $PYTHON $SOURCEDIR/manage.py collect
-sudo $PYTHON $SOURCEDIR/manage.py migrate upgrade head
+sudo $PYTHON $SOURCEDIR/manage.py alembic upgrade head
 sudo chown $USER:$GROUP -R $DEPLOYDIR

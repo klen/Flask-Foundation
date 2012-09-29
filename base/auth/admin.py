@@ -1,5 +1,5 @@
 from ..core.ext import admin, ModelView
-from .models import User, Role
+from .models import User, Role, Key
 from flask_wtf import PasswordField, required
 
 
@@ -16,3 +16,4 @@ class UserView(ModelView):
 
 admin.add_model(User, UserView)
 admin.add_model(Role)
+admin.add_model(Key)

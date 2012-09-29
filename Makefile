@@ -3,7 +3,8 @@ PIP=$(ENVBIN)/pip
 PYTHON=$(ENVBIN)/python
 PYBABEL=$(ENVBIN)/pybabel
 BABELDIR=$(CURDIR)/base/translations
-CONFIG=base.config.develop
+MODULE=base
+CONFIG=$(MODULE).config.develop
 
 all: .env
 
@@ -37,13 +38,13 @@ db: .env/ manage.py
 # target: audit - Audit source code
 .PHONY: audit
 audit:
-	pylama base -i E501
+	pylama $(MODULE) -i E501
 
 
 # target: test - Run tests
 .PHONY: test
-test: .env/ manage.py
-	$(PYTHON) manage.py test -c base.config.test
+test: .env/ manage.py clean
+	$(PYTHON) manage.py test -c $(MODULE).config.test
 
 
 # target: clean - Clean repo

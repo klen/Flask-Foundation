@@ -1,0 +1,20 @@
+{% extends "core/base.html" %}
+
+{% block page_content %}
+<div class="span4 well">
+    <div class="row">
+        <div class="span1"><a href="http://critterapp.pagodabox.com/others/admin" class="thumbnail"><img src="http://critterapp.pagodabox.com/img/user.jpg" alt=""></a></div>
+        <div class="span3">
+            <p>{{ current_user.username }}</p>
+            <strong><p>First Last Name</p></strong>
+
+            <p><a href="{{ url_for('oauth_twitter_login') }}"><img src="http://favicon.yandex.ru/favicon/twitter.com" alt="twitter"/> twitter</a></p>
+            <p><a href="{{ url_for('oauth_facebook_login') }}"><img src="http://favicon.yandex.ru/favicon/facebook.com" alt="facebook"/> facebook</a></p>
+            <p><a href="{{ url_for('oauth_github_login') }}"><img src="http://favicon.yandex.ru/favicon/github.com" alt="twitter"/> github</a></p>
+
+            <span class=" badge badge-warning">8 messages</span> <span class=" badge badge-info">15 followers</span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -2,39 +2,56 @@
 
 {% block page_content %}
 
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-      </div>
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+    <h2>Quick start with <a href="http://flask.pocoo.org/">Flask</a>.</h2>
+    <p>This is a template for a simple creating website with Flask.
+    Use it as a starting point to create something more unique.</p>
+    <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="span4">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-      </div>
+<!-- Example row of columns -->
+<div class="row">
+    <div class="span4">
+        <h2>Batteries</h2>
 
-      <div class="row">
-        <div class="span12">
+        <ul>
+            <li><a href="https://github.com/mrjoes/flask-admin/">Flask-Admin</a></li>
+            <li><a href="http://github.com/rduplain/flask-script">Flask-Script</a></li>
+            <li><a href="http://packages.python.org/Flask-Cache/">Flask-Cache</a></li>
+            <li><a href="https://github.com/mgood/flask-debugtoolbar">Flask-Debugtoolbar</a></li>
+            <li><a href="http://github.com/mitsuhiko/flask-babel">Flask-Babel</a></li>
+            <li><a href="http://github.com/rduplan/flask-wtf">Flask-WTF</a></li>
+            <li><a href="http://github.com/mbr/flask-bootstrap">Flask-Bootstrap</a></li>
+            <li><a href="https://github.com/mattupstate/flask-mail">Flask-Mail</a></li>
+            <li><a href="http://github.com/mitsuhiko/flask-sqlalchemy">Flask-SQLAlchemy</a></li>
+            <li><a href="http://packages.python.org/Flask-Testing/">Flask-Testing</a></li>
+            <li><a href="http://pypi.python.org/pypi/alembic/0.3.5">Alembic</a></li>
+        </ul>
+        <p><a class="btn" href="#">View details &raquo;</a></p>
+    </div>
+    <div class="span4">
+        <h2>Candies</h2>
+        <p>Example user authentication system.</p>
+        <p>Example OAuth authorization</p>
+        <p>Included usefull makefile shortcurs (make run, make db and etc).</p>
+        <p><a class="btn" href="#">View details &raquo;</a></p>
+    </div>
+    <div class="span4">
+        <h2>Tests</h2>
+        <p>Tested for python version 2.6, 2.7</p>
+        <p><img src="https://secure.travis-ci.org/klen/Flask-Foundation.png" alt="Build Status"/></p>
+        <p><a class="btn" href="#">View details &raquo;</a></p>
+    </div>
+</div>
 
-          {# <h3>The same form rendered using quick_form</h3> #}
-          {# {{ wtf.quick_form(form) }} #}
+<div class="row">
+    <div class="span12">
 
-        </div>
-      </div>
+        {# <h3>The same form rendered using quick_form</h3> #}
+        {# {{ wtf.quick_form(form) }} #}
+
+    </div>
+</div>
 
 {% endblock %}
