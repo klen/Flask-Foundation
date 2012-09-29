@@ -58,13 +58,9 @@ class AbstractRAuth(object):
 
         else:
             if not user.is_authenticated():
-                user = User.query.filter(
-                    User.username == response.content['username']).first()
-
-                if user is None:
-                    user = User(username=response.content['username'])
-                    user.generate_password()
-                    db.session.add(user)
+                user = User(username=credentials['username'])
+                user.generate_password()
+                db.session.add(user)
 
             key = Key(
                 service_alias=cls.name,
