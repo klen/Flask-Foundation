@@ -59,10 +59,10 @@ class AbstractRAuth(object):
         else:
             if not user.is_authenticated():
                 user = User.query.filter(
-                    User.username == response.content['screen_name']).first()
+                    User.username == response.content['username']).first()
 
                 if user is None:
-                    user = User(username=response.content['screen_name'])
+                    user = User(username=response.content['username'])
                     user.generate_password()
                     db.session.add(user)
 
