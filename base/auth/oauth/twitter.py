@@ -1,5 +1,3 @@
-from flask_rauth import RauthOAuth1
-
 from .base import AbstractRAuth
 
 
