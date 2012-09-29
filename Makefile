@@ -67,3 +67,8 @@ $(BABELDIR)/ru:
 .PHONY: chown
 chown:
 	sudo chown $(USER):$(USER) -R $(CURDIR)
+
+.PHONY upload
+upload:
+	git push
+	makesite update foundation -p /var/www -H ubuntu@foundation.node42.org
