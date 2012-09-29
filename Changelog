@@ -3,6 +3,7 @@
 	* Flask-Mail 0.7.3
 	* Add Foundation logo and favicon
 	* Refactor OAuth support (Added facebook and Github as examples)
+	* Respect environmet variable "MODE"
 
 2012-09-25  klen
 
