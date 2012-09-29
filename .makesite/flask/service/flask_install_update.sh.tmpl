@@ -8,6 +8,7 @@ DEPLOYDIR={{ deploy_dir }}
 CONFIG=base.config.{{ mode }}
 
 
+cd $SOURCEDIR
 sudo $PYTHON $SOURCEDIR/manage.py collect -c $CONFIG
 sudo $PYTHON $SOURCEDIR/manage.py alembic upgrade head -c $CONFIG
 sudo chown $USER:$GROUP -R $DEPLOYDIR
