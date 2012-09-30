@@ -11,10 +11,12 @@ auth = UserManager(
     'auth', __name__, url_prefix='/auth', template_folder='templates')
 
 
-@auth.route('/profile/')
-@auth.login_required
-def profile():
-    return render_template("auth/profile.html")
+if not current_app.config.get('AUTH_PROFILE_VIEW'):
+
+    @auth.route('/profile/')
+    @auth.login_required
+    def profile():
+        return render_template("auth/profile.html")
 
 
 @auth.route('/login/', methods=['POST'])
