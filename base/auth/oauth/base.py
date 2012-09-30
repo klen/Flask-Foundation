@@ -83,6 +83,10 @@ class AbstractRAuth(object):
         if not options:
             return False
 
+        params = dict()
+        if 'params' in options:
+            params = options.pop('params')
+
         app.logger.info('Init OAuth %s' % cls.name)
         cls.options.update(name=cls.name, **options)
         client_cls = RauthOAuth2
@@ -100,7 +104,7 @@ class AbstractRAuth(object):
                 callback=(
                     url_for(authorize_name, _external=True,
                             next=request.args.get('next') or request.referrer)
-                ))
+                ), **params)
 
         cls.client.tokengetter_f = cls.get_token
 
