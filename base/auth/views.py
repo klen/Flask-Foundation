@@ -1,4 +1,4 @@
-from flask import request, render_template, flash, redirect, url_for
+from flask import request, render_template, flash, redirect, url_for, current_app
 from flaskext.babel import lazy_gettext as _
 
 from ..ext import db
@@ -11,10 +11,12 @@ auth = UserManager(
     'auth', __name__, url_prefix='/auth', template_folder='templates')
 
 
-@auth.route('/profile/')
-@auth.login_required
-def profile():
-    return render_template("auth/profile.html")
+if not current_app.config.get('AUTH_PROFILE_VIEW'):
+
+    @auth.route('/profile/')
+    @auth.login_required
+    def profile():
+        return render_template("auth/profile.html")
 
 
 @auth.route('/login/', methods=['POST'])
@@ -28,7 +30,8 @@ def login():
         if user and user.check_password(form.password.data):
             auth.login(user)
             flash(_('Welcome %(user)s', user=user.username))
-            return redirect(url_for('auth.profile'))
+            redirect_name = current_app.config.get('AUTH_PROFILE_VIEW', 'auth.profile')
+            return redirect(url_for(redirect_name))
         flash(_('Wrong email or password'), 'error-message')
     return redirect(request.referrer or url_for(auth._login_manager.login_view))
 
@@ -60,8 +63,11 @@ def register():
 
         # flash will display a message to the user
         flash(_('Thanks for registering'))
+
         # redirect user to the 'home' method of the user module.
-        return redirect(url_for('auth.profile'))
+        redirect_name = current_app.config.get('AUTH_PROFILE_VIEW', 'auth.profile')
+        return redirect(url_for(redirect_name))
+
     return render_template("auth/register.html", form=form)
 
 

@@ -1,5 +1,6 @@
 from ..core.tests import FlaskTest
 from ..ext import db
+from flask import url_for
 
 
 class AuthTest(FlaskTest):
@@ -23,7 +24,8 @@ class AuthTest(FlaskTest):
             email='test@test.com',
             action_save=True,
             password='test'))
-        self.assertRedirects(response, '/auth/profile/')
+        redirect_url = url_for(self.app.config.get('AUTH_PROFILE_VIEW', 'auth.profile'))
+        self.assertRedirects(response, redirect_url)
 
         response = self.client.get('/auth/logout/')
         self.assertRedirects(response, '/')
@@ -35,7 +37,8 @@ class AuthTest(FlaskTest):
             password='test',
             password_confirm='test',
         ))
-        self.assertRedirects(response, '/auth/profile/')
+        redirect_url = url_for(self.app.config.get('AUTH_PROFILE_VIEW', 'auth.profile'))
+        self.assertRedirects(response, redirect_url)
 
         user = User.query.filter(User.username == 'test2').first()
         self.assertEqual(user.email, 'test2@test.com')
@@ -57,9 +60,14 @@ class AuthTest(FlaskTest):
     def test_oauth(self):
         from flask import url_for
 
-        self.assertTrue(url_for('oauth_twitter_login'))
-        self.assertTrue(url_for('oauth_github_login'))
-        self.assertTrue(url_for('oauth_facebook_login'))
+        if self.app.config.get('OAUTH_TWITTER'):
+            self.assertTrue(url_for('oauth_twitter_login'))
+
+        if self.app.config.get('OAUTH_GITHUB'):
+            self.assertTrue(url_for('oauth_github_login'))
+
+        if self.app.config.get('OAUTH_FACEBOOK'):
+            self.assertTrue(url_for('oauth_facebook_login'))
 
 
 class TestUserMixin(object):

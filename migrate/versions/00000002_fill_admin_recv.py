@@ -9,13 +9,14 @@ from sqlalchemy.ext.declarative import declared_attr
 from werkzeug import generate_password_hash
 
 from base.core.models import BaseMixin
-from base.ext import db
+from flask_sqlalchemy import SQLAlchemy
+from flask import current_app
 
 
 revision = '00000002'
 down_revision = '00000001'
 
-db.metadata.clear()
+db = SQLAlchemy(current_app)
 
 
 class MigrateRole(db.Model, BaseMixin):
