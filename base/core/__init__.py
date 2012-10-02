@@ -1,5 +1,5 @@
 " base.core "
-from flask import request
+from flask import request, current_app
 from flask_mail import Message
 from logging import Handler, ERROR
 
@@ -22,7 +22,7 @@ def loader_meta(app=None):
     from flask import render_template
     app.errorhandler(404)(lambda e: (render_template('core/404.html'), 404))
 
-    if not app.debug:
+    if not app.debug and app.config.get('ADMINS'):
         mailhandler = FlaskMailHandler(ERROR)
         app.logger.addHandler(mailhandler)
 
@@ -33,7 +33,9 @@ class FlaskMailHandler(Handler):
 
     def emit(self, record):
         sbj = "APP ERROR: %s%s" % (request.host_url.rstrip('/'), request.path)
-        msg = Message(sbj, body=self.format(record), recipients=mail.app.config.get('ADMINS', []))
+        body = self.format(record) or 'Wrong record.'
+
+        msg = Message(sbj, body=body, recipients=current_app.config.get('ADMINS', []))
         mail.send(msg)
 
 

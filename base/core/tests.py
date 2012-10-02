@@ -88,7 +88,14 @@ class CoreTest(FlaskTest):
         self.assertEqual(Alembic.before_new.call_count, 1)
 
     def test_mail_handler(self):
+        from . import FlaskMailHandler
         from ..ext import mail
+
+        mail.username = 'test@test.com'
+        mail.password = 'test'
+        self.app.config['ADMINS'] = ['test@test.com']
+        self.app.config['DEFAULT_MAIL_SENDER'] = 'test@test.com'
+        self.app.logger.addHandler(FlaskMailHandler(40))
         with mail.record_messages() as outbox:
             self.app.logger.error('Attention!')
             self.assertTrue(outbox)

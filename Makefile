@@ -50,8 +50,8 @@ test: .env/ manage.py clean
 # target: clean - Clean repo
 .PHONY: clean
 clean:
-	find $(CURDIR) -name "*.pyc" -delete
-	find $(CURDIR) -name "*.orig" -delete
+	rm -f *.py[co] *.orig
+	rm -f */*.py[co] */*.orig
 
 
 # target: babel - Recompile language files
