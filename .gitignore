@@ -1,8 +1,9 @@
-*.pyc
+._
+base/config/local.py
+.db
 .env
+*.py[co]
 .ropeproject
+.tags
 .tests
 .vimrc
-.db
-.tags
-._
