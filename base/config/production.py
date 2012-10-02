@@ -34,5 +34,6 @@ DEALER_PARAMS = dict(
     backends=('git', 'mercurial', 'simple', 'null')
 )
 
+logging.info("Production settings loaded.")
 
 # pymode:lint_ignore=W0614,W404

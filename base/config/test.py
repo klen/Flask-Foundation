@@ -11,5 +11,6 @@ CACHE_TYPE = 'simple'
 
 AUTH_USER_MIXINS += ['base.auth.tests.TestUserMixin']
 
+logging.info("Test settings loaded.")
 
 # pymode:lint_ignore=W0614,W404

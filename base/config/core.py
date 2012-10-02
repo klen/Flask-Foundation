@@ -1,4 +1,7 @@
-" Immutable basic settings. "
+""" Immutable basic settings.
+"""
+
+import logging
 
 from base.config import op, ROOTDIR
 
@@ -25,3 +28,6 @@ MAIL_USE_SSL = True
 MAIL_USERNAME = None
 MAIL_PASSWORD = None
 DEFAULT_MAIL_SENDER = None
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s', datefmt='%d.%m %H:%M:%S')
+logging.info("Core settings loaded.")
