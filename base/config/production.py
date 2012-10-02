@@ -5,7 +5,7 @@ from os import path as op
 
 
 SECRET_KEY = 'SecretKeyForSessionSigning'
-ADMINS = frozenset([MAIL_USERNAME])
+ADMINS = MAIL_USERNAME and [MAIL_USERNAME] or None
 
 # flask.ext.collect
 # -----------------
