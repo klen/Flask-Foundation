@@ -33,7 +33,9 @@ class FlaskMailHandler(Handler):
 
     def emit(self, record):
         sbj = "APP ERROR: %s%s" % (request.host_url.rstrip('/'), request.path)
-        msg = Message(sbj, body=self.format(record), recipients=current_app.config.get('ADMINS', []))
+        body = self.format(record) or 'Wrong record.'
+
+        msg = Message(sbj, body=body, recipients=current_app.config.get('ADMINS', []))
         mail.send(msg)
 
 
