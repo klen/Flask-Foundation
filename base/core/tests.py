@@ -88,6 +88,8 @@ class CoreTest(FlaskTest):
         self.assertEqual(Alembic.before_new.call_count, 1)
 
     def test_mail_handler(self):
+        """ Handle errors by mail.
+        """
         from . import FlaskMailHandler
         from ..ext import mail
 
@@ -96,8 +98,21 @@ class CoreTest(FlaskTest):
         self.app.config['ADMINS'] = ['test@test.com']
         self.app.config['DEFAULT_MAIL_SENDER'] = 'test@test.com'
         self.app.logger.addHandler(FlaskMailHandler(40))
+        propagate_exceptions = self.app.config.get('PROPAGATE_EXCEPTIONS')
+        self.app.config['PROPAGATE_EXCEPTIONS'] = False
+
+        @self.app.route('/error')
+        def error():
+            raise Exception('Error content')
+
         with mail.record_messages() as outbox:
             self.app.logger.error('Attention!')
             self.assertTrue(outbox)
-            msg = outbox[0]
+            msg = outbox.pop()
             self.assertEqual(msg.subject, 'APP ERROR: http://localhost/')
+
+            self.client.get('/error')
+            msg = outbox.pop()
+            self.assertTrue('Error content', )
+
+        self.app.config['PROPAGATE_EXCEPTIONS'] = propagate_exceptions
