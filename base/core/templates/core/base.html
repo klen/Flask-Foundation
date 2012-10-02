@@ -17,16 +17,17 @@
 {% block body_content %}
 
     {# Navbar #}
-    {% block navigation %}
-        {% include 'core/blocks/nav.html' %}
-    {% endblock %}
+    {% block navigation %}{% include 'core/blocks/nav.html' %}{% endblock %}
 
-    {% include "core/blocks/messages.html" %}
+    {# Messages #}
+    {% block messages %}{% include "core/blocks/messages.html" %}{% endblock %}
 
+    {# Content #}
     <div class="container">
         {% block page_content %}{% endblock %}
     </div>
 
+    {# Footer #}
     {% block footer %}
         <style type="text/css" media="screen">
             .footer {
@@ -41,5 +42,8 @@
             </div>
         </footer>
     {% endblock %}
+
+    {% if config.get('FOUNDATION_METRIKA') %} {% include "core/blocks/metrika.html" %} {% endif %}
+    {% if config.get('FOUNDATION_ANALYTICS') %} {% include "core/blocks/analytics.html" %} {% endif %}
 
 {% endblock %}
