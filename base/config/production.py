@@ -4,6 +4,7 @@ from .core import *
 from os import path as op
 
 
+MODE = 'production'
 SECRET_KEY = 'SecretKeyForSessionSigning'
 ADMINS = MAIL_USERNAME and [MAIL_USERNAME] or None
 

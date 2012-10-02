@@ -3,6 +3,7 @@
 from .production import *
 
 
+MODE = 'test'
 TESTING = True
 SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 CSRF_ENABLED = False

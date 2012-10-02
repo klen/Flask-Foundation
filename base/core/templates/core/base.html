@@ -46,4 +46,6 @@
     {% if config.get('FOUNDATION_METRIKA') %} {% include "core/blocks/metrika.html" %} {% endif %}
     {% if config.get('FOUNDATION_ANALYTICS') %} {% include "core/blocks/analytics.html" %} {% endif %}
 
+    <!-- {{ config.get('MODE', 'unknown' ) }}:{{ config.get('DEBUG', False) }} -->
+
 {% endblock %}
