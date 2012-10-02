@@ -1,6 +1,6 @@
 # Flask template
 # --------------
-alembic>=0.3.6
+alembic>=0.4.0
 dealer>=0.1.8
 Flask>=0.9
 Flask-Admin>=1.0.2
