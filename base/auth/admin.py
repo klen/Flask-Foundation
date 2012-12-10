@@ -1,6 +1,8 @@
-from ..core.ext import admin, ModelView
-from .models import User, Role, Key
+from flask_admin.contrib.sqlamodel import ModelView
 from flask_wtf import PasswordField, required
+
+from ..core.ext import admin
+from .models import User, Role, Key
 
 
 class UserView(ModelView):

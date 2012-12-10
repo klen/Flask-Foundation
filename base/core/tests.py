@@ -68,7 +68,7 @@ class CoreTest(FlaskTest):
     def test_admin(self):
         with self.assertNumQueries(0):
             response = self.client.get('/admin/')
-        self.assert403(response)
+        self.assert404(response)
 
     def test_cache(self):
         from ..ext import cache
