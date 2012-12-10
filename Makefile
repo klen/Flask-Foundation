@@ -6,7 +6,7 @@ BABELDIR=$(CURDIR)/base/translations
 MODULE=base
 CONFIG=$(MODULE).config.develop
 
-all: .env
+all: .env db
 
 # target: help - Display callable targets
 help:
