@@ -1,5 +1,6 @@
 from flask import current_app
 from flask_testing import TestCase
+from flask_mixer import Mixer
 
 from ..ext import db
 
@@ -43,6 +44,7 @@ class FlaskTest(TestCase):
 
     def setUp(self):
         db.create_all()
+        self.mixer = Mixer(self.app, session_commit=True)
 
     def tearDown(self):
         db.session.remove()

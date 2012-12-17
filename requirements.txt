@@ -11,6 +11,7 @@ flask-collect==0.1.6
 Flask-DebugToolbar==0.7.1
 Flask-Login==0.1.3
 Flask-Mail==0.7.4
+flask-mixer==0.2.2
 Flask-Principal==0.3.3
 Flask-Rauth==0.2.2
 Flask-Script==0.5.1
