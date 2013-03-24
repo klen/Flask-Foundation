@@ -7,8 +7,8 @@ from .models import User, Role, Key
 
 class UserView(ModelView):
     column_filters = 'username', 'email'
-    list_columns = 'username', 'email', 'active', 'created_at', 'updated_at'
-    excluded_form_columns = 'oauth_token', 'oauth_secret', '_pw_hash'
+    column_list = 'username', 'email', 'active', 'created_at', 'updated_at'
+    form_excluded_columns = 'oauth_token', 'oauth_secret', '_pw_hash'
 
     def scaffold_form(self):
         form = super(UserView, self).scaffold_form()

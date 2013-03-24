@@ -3,7 +3,7 @@ from flask_collect import Collect
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_mail import Mail
 from flask_script import Manager
-from flask_sqlalchemy import SQLAlchemy
+from flask_squll import Squll
 from flaskext.babel import Babel
 from flask_cache import Cache
 from dealer.contrib.flask import Dealer
@@ -13,7 +13,7 @@ from .app import create_app
 
 babel = Babel()
 cache = Cache()
-db = SQLAlchemy()
+db = Squll()
 dealer = Dealer()
 mail = Mail()
 
@@ -44,7 +44,8 @@ def config_babel(app):
     babel.init_app(app)
 
     def get_locale():
-        return request.accept_languages.best_match(app.config['BABEL_LANGUAGES'])
+        return request.accept_languages.best_match(
+            app.config['BABEL_LANGUAGES'])
     babel.localeselector(get_locale)
 
 

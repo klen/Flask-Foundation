@@ -12,10 +12,12 @@ all: .env db
 help:
 	@egrep "^# target:" [Mm]akefile
 
-.env: requirements.txt
-	virtualenv --no-site-packages .env
+.env: requirements.txt $(ENVBIN)
 	$(PIP) install -M -r requirements.txt
+	touch .env
 
+$(ENVBIN):
+	virtualenv --no-site-packages .env
 
 # target: shell - Open application shell
 .PHONY: shell
@@ -43,7 +45,7 @@ audit:
 
 # target: test - Run tests
 .PHONY: test
-test: .env/ manage.py clean
+test: .env manage.py clean
 	$(PYTHON) manage.py test -c $(MODULE).config.test
 
 
