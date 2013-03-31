@@ -1,6 +1,6 @@
 """Added Key to auth
 
-Revision ID: 25a30eafd911
+Revision ID: 00000003
 Revises: 00000002
 Create Date: 2012-09-29 20:54:46.332465
 

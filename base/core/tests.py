@@ -1,10 +1,16 @@
 from flask import current_app
 from flask_testing import TestCase
+from flask_mixer import Mixer
 
 from ..ext import db
 
 
 class QueriesContext():
+    """ Test's tool for check database queries.
+
+        >>> with self.assertNumQueries(4):
+        >>>     do_something()
+    """
 
     def __init__(self, num, testcase):
 
@@ -36,13 +42,18 @@ class QueriesContext():
 
 
 class FlaskTest(TestCase):
-    " Base flask test class. "
+    """ Base flask test class.
+
+        Initialize database.
+        Create objects generator.
+    """
 
     def create_app(self):
         return current_app
 
     def setUp(self):
         db.create_all()
+        self.mixer = Mixer(self.app, session_commit=True)
 
     def tearDown(self):
         db.session.remove()
@@ -104,6 +115,7 @@ class CoreTest(FlaskTest):
         @self.app.route('/error')
         def error():
             raise Exception('Error content')
+        assert error
 
         with mail.record_messages() as outbox:
             self.app.logger.error('Attention!')
