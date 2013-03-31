@@ -2,6 +2,7 @@
 # --------------
 # Freeze rauth==0.4.16 for Flask-Rauth==0.3.2
 rauth==0.4.16
+SQLAlchemy==0.8.0
 
 Flask-Admin==1.0.5
 Flask-Babel==0.8

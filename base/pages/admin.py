@@ -19,7 +19,7 @@ class PageView(AuthModelView):
     create_template = 'pages/admin/create.html'
     edit_template = 'pages/admin/edit.html'
     form_overrides = dict(content=WysiwygTextAreaField)
-    list_columns = 'slug', 'active', 'created_at', 'updated_at'
+    column_list = 'slug', 'active', 'created_at', 'updated_at'
 
 
 admin.add_model(Page, PageView)
