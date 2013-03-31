@@ -1,0 +1,21 @@
+{% extends "admin/model/create.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('pages.static', filename='bootstrap-wysihtml5.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('pages.static', filename='wysiwyg-color.css') }}" />
+    <style type="text/css" media="screen">
+        .textarea {
+            height: 400px;
+        }
+    </style>
+{% endblock %}
+
+{% block tail %}
+    {{ super() }}
+    <script src="{{ url_for('pages.static', filename='wysihtml5-0.4.0pre.min.js') }}"></script>
+    <script src="{{ url_for('pages.static', filename='bootstrap-wysihtml5-0.0.2.min.js') }}"></script>
+    <script> $('.textarea').wysihtml5({
+        html: true
+    }); </script>
+{% endblock %}

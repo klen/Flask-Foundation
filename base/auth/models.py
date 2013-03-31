@@ -1,11 +1,12 @@
+from datetime import datetime
+
 from flask_login import UserMixin
 from flask_principal import RoleNeed, Permission
-from flask_sqlalchemy import _BoundDeclarativeMeta
+from flask_squll import _BoundDeclarativeMeta
 from random import choice
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.ext.hybrid import hybrid_property
 from werkzeug import check_password_hash, generate_password_hash
-from datetime import datetime
 
 from ..core.models import BaseMixin
 from ..ext import db

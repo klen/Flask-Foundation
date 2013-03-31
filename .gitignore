@@ -1,9 +1,10 @@
-._
-base/config/local.py
+*.py[co]
+.DS_Store
 .db
 .env
-*.py[co]
 .ropeproject
 .tags
 .tests
 .vimrc
+_
+base/config/local.py

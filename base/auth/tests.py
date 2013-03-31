@@ -1,6 +1,7 @@
+from flask import url_for
+
 from ..core.tests import FlaskTest
 from ..ext import db
-from flask import url_for
 
 
 class AuthTest(FlaskTest):

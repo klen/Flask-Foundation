@@ -17,7 +17,7 @@ It includes:
 * [Flask-WTF](http://github.com/rduplan/flask-wtf) (forms);
 * [Flask-Bootstrap](http://github.com/mbr/flask-bootstrap) (markup);
 * [Flask-Mail] (https://github.com/mattupstate/flask-mail) (mail);
-* [Flask-SQLAlchemy](http://github.com/mitsuhiko/flask-sqlalchemy) (ORM);
+* [Flask-Squll](http://github.com/thrisp/flask-squll) (ORM);
 * [Alembic](http://pypi.python.org/pypi/alembic/0.3.5) (ORM);
 * [Flask-Testing](http://packages.python.org/Flask-Testing/) (testing);
 * Included user authentication system;
