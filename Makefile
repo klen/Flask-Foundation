@@ -1,4 +1,5 @@
-ENVBIN=$(CURDIR)/.env/bin
+VIRTUALENV=$(shell echo "$${VDIR:-'.env'}")
+ENVBIN=$(VIRTUALENV)/bin
 PIP=$(ENVBIN)/pip
 PYTHON=$(ENVBIN)/python
 PYBABEL=$(ENVBIN)/pybabel
@@ -6,35 +7,37 @@ BABELDIR=$(CURDIR)/base/translations
 MODULE=base
 CONFIG=$(MODULE).config.develop
 
-all: .env db
+all: $(VIRTUALENV) db
 
 # target: help - Display callable targets
 help:
 	@egrep "^# target:" [Mm]akefile
 
-.env: requirements.txt $(ENVBIN)
+$(VIRTUALENV): requirements.txt $(ENVBIN)
 	$(PIP) install -M -r requirements.txt
-	touch .env
+	touch $(VIRTUALENV)
 
 $(ENVBIN):
-	virtualenv --no-site-packages .env
+	virtualenv --no-site-packages $(VIRTUALENV)
+	touch $(ENVBIN)
 
 # target: shell - Open application shell
 .PHONY: shell
-shell: .env/ manage.py
+shell: $(VIRTUALENV) manage.py
 	$(PYTHON) manage.py shell -c $(CONFIG)
 
 
 # target: run - Run application server
 .PHONY: run
-run: .env/ manage.py
+run: $(VIRTUALENV) manage.py
 	$(PYTHON) manage.py runserver -c $(CONFIG)
 
 
 # target: db - Init and migrate application db
 .PHONY: db
-db: .env/ manage.py
+db: $(VIRTUALENV) manage.py
 	$(PYTHON) manage.py alembic upgrade head -c $(CONFIG)
+	touch manage.py
 
 
 # target: audit - Audit source code
@@ -45,7 +48,7 @@ audit:
 
 # target: test - Run tests
 .PHONY: t
-t: .env manage.py clean
+t: $(VIRTUALENV) manage.py clean
 	$(PYTHON) manage.py test -c $(MODULE).config.test
 
 
